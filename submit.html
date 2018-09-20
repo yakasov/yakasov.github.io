@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <title> Submit </title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+<body>
+
+<?php
+$quote_name =
+$quote_content =
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $quote_name = input($_POST["quote_name"]);
+  $quote_content = input($POST["quote_content"]);
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+?>
+
+<div class="jumbotron text-center">
+  <form action="https://yakasov.github.io/">
+    <button style="border:none;position:absolute;top:10px;left:10px;width:160px" class="previous">&laquo; Back to Homepage</button>
+  </form>
+  <h1> Submit quotes below </h1>
+</div>
+
+<div class="container">
+
+  <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+    Name:<br>
+    <input type="text" name="quote_name"><br><br>
+    Quote:<br>
+    <textarea name="quote_content" rows="10" cols="50"> </textarea><br>
+    <input type="submit">
+  </form>
+
+<?php
+echo "<h2>Your Input:</h2>";
+echo $quote_name;
+echo $quote_content;
+?>
+
+</div>
+
+</body>
