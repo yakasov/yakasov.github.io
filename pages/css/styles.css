@@ -1,0 +1,31 @@
+body {
+	background: #24292E;
+	color: #FFFFFF
+}
+body.index {
+	background:#1D2125;
+	color: #FFFFFF
+}
+p {
+	text-align: center;
+	color: #FFFFFF
+}
+h1.jumbotron {
+	background:#24292E;
+	color: #FFFFFF
+}
+div.jumbotron {
+	background:#1D2125;
+	color: #FFFFFF
+}
+i.top {
+	color: #FFFFFF
+}
+button {
+	background:#1D2125;
+	border:none;
+	position:absolute;
+	top:10px;
+	left:0px;
+	width:160px
+}
