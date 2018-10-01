@@ -3,10 +3,12 @@ body {
 	color: #FFFFFF
 }
 body.index {
+	font-size: 32px;
 	background:#1D2125;
 	color: #FFFFFF
 }
 p {
+	font-size: 16px;
 	text-align: center;
 	color: #FFFFFF
 }
@@ -19,6 +21,13 @@ div.jumbotron {
 	color: #FFFFFF
 }
 i.top {
+	color: #FFFFFF
+}
+footer.index {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	font-size: 16px;
 	color: #FFFFFF
 }
 button {
