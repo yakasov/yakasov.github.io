@@ -4,7 +4,7 @@ body, h1.jumbotron {
 }
 body.index {
 	font-size: 34px;
-	background:#1D2125;
+	background: #1D2125;
 	color: #FFFFFF
 }
 p {
@@ -20,13 +20,13 @@ footer.index {
 	position: fixed;
 	width: 100%;
 	bottom: 5px;
-	font-size: 13px;
+	font-size: 20px;
 }
 button {
-	background:#1D2125;
-	border:none;
-	position:absolute;
-	top:10px;
-	left:0px;
-	width:160px
+	background: #1D2125;
+	border: none;
+	position: absolute;
+	top: 5px;
+	left: 0;
+	font-size: 16px
 }
