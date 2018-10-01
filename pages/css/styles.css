@@ -1,9 +1,9 @@
-body {
+body, h1.jumbotron {
 	background: #24292E;
 	color: #FFFFFF
 }
 body.index {
-	font-size: 32px;
+	font-size: 34px;
 	background:#1D2125;
 	color: #FFFFFF
 }
@@ -12,23 +12,15 @@ p {
 	text-align: center;
 	color: #FFFFFF
 }
-h1.jumbotron {
-	background:#24292E;
-	color: #FFFFFF
-}
 div.jumbotron {
 	background:#1D2125;
-	color: #FFFFFF
-}
-i.top {
 	color: #FFFFFF
 }
 footer.index {
 	position: fixed;
 	width: 100%;
-	bottom: 0;
-	font-size: 16px;
-	color: #FFFFFF
+	bottom: 5px;
+	font-size: 13px;
 }
 button {
 	background:#1D2125;
