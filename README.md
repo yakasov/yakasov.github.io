@@ -1,3 +1,3 @@
 # yakasov.github.io
 
-Links to interesting quotes and videos.
+Personal project, adding favourite quotes, videos and audio files onto a website.
