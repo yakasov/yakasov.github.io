@@ -1,52 +1,12 @@
-body, h1.jumbotron {
-	background: #24292E;
-	color: #FFFFFF
-}
-body.index {
-	font-size: 3.6em;
-	background: #1D2125;
-	color: #FFFFFF
-}
-p {
-	font-size: 16px;
-	text-align: center;
-	color: #FFFFFF
-}
-div.jumbotron {
-	background: #1D2125;
-	color: #FFFFFF
-}
-footer.index {
-	position: fixed;
-	width: 100%;
-	bottom: 5px;
-	font-size: 20px;
-}
-blockquote {
-	font-size:1.8em;
-	font-weight: normal
-}
-h4, h3 {
-	color: #65696C
-}
-
-button {
-	background: #1D2125;
-	border: none;
-	position: absolute;
-	top: 5px;
-	left: 0;
-	font-size: 16px
-}
-tr:nth-child(even) {
-    	background: #1D2125
-}
-tr {
-	font-size: 24px
-}
-tr.head {
-	font-size: 48px
-}
-th {
-	font-weight: normal
-}
+body, h1.jumbotron { background: #24292E; color: #FFFFFF }
+body.index { font-size: 3.6em; background: #1D2125; color: #FFFFFF }
+p { font-size: 16px; text-align: center; color: #FFFFFF }
+div.jumbotron { background: #1D2125; color: #FFFFFF }
+footer.index { position: fixed; width: 100%; bottom: 5px; font-size: 20px }
+blockquote { font-size:1.8em; font-weight: normal }
+h4, h3 { color: #65696C }
+button { font-size: 16px; border: none; position: absolute; top: 5px; left: 0; background: #1D2125 }
+tr:nth-child(even) { background: #1D2125 }
+tr { font-size: 24px }
+tr.head { font-size: 48px }
+th { font-weight: normal }
