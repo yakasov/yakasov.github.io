@@ -1,3 +1,6 @@
 # yakasov.github.io
 
-Videos and audio files.
+Personal website;
+ - Quotes
+ - Videos
+ - "Songs"
