@@ -4,7 +4,7 @@ p { font-size: 16px; text-align: center; color: #FFFFFF }
 div.jumbotron { background: #1D2125; color: #FFFFFF }
 footer.index { position: fixed; width: 100%; bottom: 5px; font-size: 20px }
 blockquote { font-size:1.8em; font-weight: normal }
-h4, h3 { color: #65696C }
+h4, h3 { color: #65696C; font-style: italic }
 button { font-size: 16px; border: none; position: absolute; top: 5px; left: 0; background: #1D2125 }
 tr:nth-child(even) { background: #1D2125 }
 tr { font-size: 24px }
