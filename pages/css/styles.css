@@ -1,5 +1,5 @@
 body, h1.jumbotron { background: #24292E; color: #FFFFFF }
-body.index { font-size: 4.2em; background: #1D2125; color: #FFFFFF }
+body.index { font-size: 4em; background: #1D2125; color: #FFFFFF }
 p { font-size: 16px; text-align: center; color: #FFFFFF }
 div.jumbotron { background: #1D2125; color: #FFFFFF }
 footer.index { position: fixed; width: 100%; bottom: 5px; font-size: 20px }
