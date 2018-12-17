@@ -12,3 +12,5 @@ tr:nth-child(even) { background: #1D2125 }
 tr { font-size: 24px }
 tr.head { font-size: 48px }
 th { font-weight: normal }
+div.katie { background-color: #ff0ad6; font-family: "yu gothic"; letter-spacing: 10px }
+div.jessie { background-color: #face69 }
