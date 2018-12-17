@@ -13,6 +13,6 @@ tr { font-size: 24px }
 tr.head { font-size: 48px }
 th { font-weight: normal }
 
-div.katie { background-color: #ff0ad6; font-family: "yu gothic"; letter-spacing: 10px }
+div.katie { background-color: #ff0ad6; font-family: "yu gothic" }
 div.jessie { background-color: #42f4dc }
-body.tom { background-color: #FFB6C1 }
+body.tom { background-color: #eea1cd; font-family: "montserrat" }
