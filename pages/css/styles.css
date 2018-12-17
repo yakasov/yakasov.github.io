@@ -1,4 +1,4 @@
-body, h1.jumbotron { background: #24292E; color: #FFFFFF }
+body, h1.jumbotron { background: #24292E; color: #FFFFFF; font-family: "Roboto" }
 body.index { font-size: 4em; background: #1D2125; color: #FFFFFF }
 p { font-size: 16px; text-align: center; color: #FFFFFF }
 div.jumbotron { background: #1D2125; color: #FFFFFF }
@@ -12,5 +12,7 @@ tr:nth-child(even) { background: #1D2125 }
 tr { font-size: 24px }
 tr.head { font-size: 48px }
 th { font-weight: normal }
+
 div.katie { background-color: #ff0ad6; font-family: "yu gothic"; letter-spacing: 10px }
-div.jessie { background-color: #face69 }
+div.jessie { background-color: #42f4dc }
+body.tom { background-color: #FFB6C1 }
