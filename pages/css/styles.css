@@ -18,7 +18,8 @@ tr { font-size: 24px }
 tr.head { font-size: 48px }
 th { font-weight: normal }
 
-div.katie { background-color: #ff0ad6; font-family: "yu gothic", "Roboto" }
-div.jessie { background-color: #42f4dc }
-body.tom { background-color: #eea1cd; font-family: "montserrat", "Roboto" }
-body.james { background-color: #ffdd81; font-family: "ennobled", "Roboto" }
+div.katie { background-color: #FF0AD6; font-family: "yu gothic", "Roboto" }
+div.jessie { background-color: #42F4DC }
+body.tom { background-color: #EEA1CD; font-family: "montserrat", "Roboto" }
+body.james { background-color: #FFDD81; font-family: "ennobled", "Roboto" }
+body.james_m { background-color: #6E42E8; font-family: "arimo", "Roboto" }
