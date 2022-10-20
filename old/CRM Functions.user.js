@@ -1,8 +1,10 @@
 // ==UserScript==
 // @name         CRM Functions
-// @version      1.0
+// @version      1.1
 // @description  Helpful functions for ProspectSoft CRM
 // @author       Yakasov
+// @updateURL    https://raw.githubusercontent.com/yakasov/yakasov.github.io/master/old/CRM%20Functions.user.js
+// @downloadURL  https://raw.githubusercontent.com/yakasov/yakasov.github.io/master/old/CRM%20Functions.user.js
 // @match        https://crm.prospect365.com/
 // @match        https://crm.prospect365-dev.com/
 // @match        https://crm.prospect365-qa.com/
