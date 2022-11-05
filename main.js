@@ -50217,7 +50217,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 const query_params = {
     client_id: "c6a397d8515d4f3bb31b88c6a97646e8",
-    redirect_uri: "http://localhost:8080/dist/index.html",
+    redirect_uri: "https://yakasov.github.io/",
     scope: "user-read-email user-read-private user-library-read user-library-modify playlist-modify-public",
     response_type: "token",
 };
