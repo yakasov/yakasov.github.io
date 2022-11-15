@@ -16,7 +16,10 @@
     window.onload = async function () {
       const chosenName = document.location.href.split("?").pop()
       const quotes = await fetch(`quotes/${chosenName}.txt`)
-        .then(response => response.text())
+        .then((response) => {
+          if (response.ok) {return response.text()}
+          else {window.location = `quotes/${chosenName}.html`}
+        })
         .then((data) => {
           return data
         });
