@@ -23,3 +23,20 @@ div.jessie { background-color: #42F4DC }
 body.tom { background-color: #EEA1CD; font-family: "montserrat", "Roboto" }
 body.james { background-color: #FFDD81; font-family: "ennobled", "Roboto" }
 body.james_m { background-color: #6E42E8; font-family: "arimo", "Roboto" }
+
+#mainText {
+  font-size: calc(3vw + 4vh);
+  text-align: center;
+  margin-top: calc(2.5vw + 13.5vh);
+  margin-bottom: calc(3vw + 4vh);
+  line-height: 0;
+}
+
+.buttonText {
+  font-size: calc(2.5vw + 3vh);
+  line-height: calc(1.5vw + 2vh);
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  top: 50%;
+}
