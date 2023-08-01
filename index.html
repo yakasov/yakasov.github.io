@@ -42,7 +42,18 @@
         </article>
 
         <article role="tabpanel" hidden id="quotes">
-          <menu role="tablist" id="quotesMenuEl"></menu>
+          <menu role="tablist" id="quotesMenuEl">
+            <button aria-controls="arturo">Arturo</button>
+            <button aria-controls="charlie">Charlie</button>
+            <button aria-controls="james_m">James M</button>
+            <button aria-controls="james">James C</button>
+            <button aria-controls="josh">Josh</button>
+            <button aria-controls="parth">Parth</button>
+            <button aria-controls="tom">Tom</button>
+            <button aria-controls="others">Others</button>
+            <button aria-controls="others_crispins">Others (Crispins)</button>
+            <button aria-controls="teachers">Teachers</button>
+          </menu>
         </article>
 
         <article role="tabpanel" hidden id="miscellaneous">
@@ -59,12 +70,25 @@
             <li>Rato Dorime</li>
             <li>Tampermonkey Scripts</li>
           </ul>
-        </article>
-      </div>
 
-      <div class="status-bar">
-        <p class="status-bar-field">Version: 7.0</p>
-        <p class="status-bar-field">Last Update: 01/08/2023</p>
+          <div class="window cmd-window">
+            <div class="title-bar" style="height: 27px">
+              <div class="title-bar-text">Command Prompt</div>
+              <div class="title-bar-controls">
+                <button aria-label="Minimize"></button>
+                <button aria-label="Maximize"></button>
+                <button aria-label="Close"></button>
+              </div>
+            </div>
+            <div class="window-body cmd-body">
+              <pre class="cmd-pre">
+Microsoft&#10094;R&#10095; Windows DOS 
+&#10094;C&#10095; Copyright Microsoft Corp 1990-2001.
+      <br>C:&#92;WINDOWS&#92;SYSTEM32> You can build a command line easily with a window and pre tag
+              </pre>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </body>

@@ -56,10 +56,6 @@ async function displayQuoteFiles() {
     var quotesListEl = "";
 
     quotesList.forEach((q) => (quotesListEl += `<li>${q}</li>`));
-
-    quotesMenuEl.innerHTML += `<button aria-controls="${q[1].split(".")[0]}">${
-      q[0]
-    }</button>`;
     quotesMenuEl.insertAdjacentHTML(
       "afterend",
       `
