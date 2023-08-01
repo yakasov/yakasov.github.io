@@ -1,25 +1,71 @@
-﻿<!DOCTYPE html>
-<html lang="en" style="text-align:center">
-<title>Homepage</title>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta property="og:title" content="Yakasov's Mistake" />
-  <meta property="og:url" content="https://yakasov.github.io/" />
-  <meta http-equiv="cache-control" content="no-store" />
-  <meta http-equiv="expires" content="0" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-  <link rel="stylesheet" href="pages/css/styles.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-</head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:url" content="https://yakasov.github.io/" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/xp.css" />
+    <script src="scripts/loader.js" defer></script>
+    <script src="scripts/index.js" defer></script>
+  </head>
 
-<body class="index">
-  <p id="mainText">Yakasov's Page</p>
+  <body>
+    <div class="content-body window">
+      <div class="title-bar">
+        <div class="title-bar-text">Yakasov's Page</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
 
-  <a class="buttonText" href="index_old.html" style="left:15%">Old Index</a>
-  <a class="buttonText" href="pages/quotes_redirect.html" style="left:50%">Quotes</a>
-  <a class="buttonText" href="pages/projects.html" style="left:85%">Projects</a>
+      <div class="window-body">
+        <menu role="tablist">
+          <button aria-selected="true" aria-controls="projects">
+            Projects
+          </button>
+          <button aria-controls="quotes">Quotes</button>
+          <button aria-controls="miscellaneous">Miscellaneous</button>
+        </menu>
 
-  <footer class="index"><b>Version 6.0</b> | Last Update: 12/03/2023<br><i>Adding more stuff</i></footer>
-</body>
+        <article role="tabpanel" id="projects">
+          <h4>
+            <a href="./pages/projects/rgb-scale/index.html">Hex Colour Scale</a>
+          </h4>
+          <h4>
+            <a href="./pages/projects/md_to_html/index.html"
+              >Markdown to HTML Converter</a
+            >
+          </h4>
+        </article>
+
+        <article role="tabpanel" hidden id="quotes">
+          <menu role="tablist" id="quotesMenuEl"></menu>
+        </article>
+
+        <article role="tabpanel" hidden id="miscellaneous">
+          <ul class="tree-view">
+            <li>
+              <details>
+                <summary>Audio Files</summary>
+                <ul id="audioFilesUl"></ul>
+              </details>
+            </li>
+            <li>CPU History</li>
+            <li>FBC Freestyle</li>
+            <li>GitHub</li>
+            <li>Rato Dorime</li>
+            <li>Tampermonkey Scripts</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="status-bar">
+        <p class="status-bar-field">Version: 7.0</p>
+        <p class="status-bar-field">Last Update: 01/08/2023</p>
+      </div>
+    </div>
+  </body>
+</html>
