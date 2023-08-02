@@ -59,3 +59,13 @@ article {
   color: #ccc;
   font-weight: bold;
 }
+
+.h4-main {
+  margin-bottom: 0;
+}
+
+.h4-sub {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: normal;
+}

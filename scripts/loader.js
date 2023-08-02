@@ -53,32 +53,32 @@ async function displayQuoteFiles() {
   const quotesMenuEl = document.getElementById("quotesMenuEl");
 
   quoteFiles.forEach(async (q) => {
-    const quotes = await fetch(`./pages/quotes/${q[1]}`)
-      .then((response) => {
-        if (response.ok) {
-          return response.text();
-        } else {
-          // window.location = `./pages/quotes/${chosenName}.html`;
-        }
-      })
-      .then((data) => {
-        return data;
-      });
+    if (!q[1].includes("html")) {
+      const quotes = await fetch(`./pages/quotes/${q[1]}`)
+        .then((response) => {
+          if (response.ok) {
+            return response.text();
+          }
+        })
+        .then((data) => {
+          return data;
+        });
 
-    const quotesList = quotes.split("\n").slice(1);
-    var quotesListEl = "";
+      const quotesList = quotes.split("\n").slice(1);
+      var quotesListEl = "";
 
-    quotesList.forEach((q) => (quotesListEl += `<li>${q}</li>`));
-    quotesMenuEl.insertAdjacentHTML(
-      "afterend",
-      `
+      quotesList.forEach((q) => (quotesListEl += `<li>${q}</li>`));
+      quotesMenuEl.insertAdjacentHTML(
+        "afterend",
+        `
         <article role="tabpanel" hidden id="${
           q[1].split(".")[0]
         }" class="inner-quote-article">
             <ul>${quotesListEl}</ul>
         </article>
     `
-    );
+      );
+    }
   });
 }
 
