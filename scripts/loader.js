@@ -37,8 +37,6 @@ const quoteFiles = [
   ["Teachers", "teachers.html"],
 ];
 
-var isPlaying = false;
-
 async function displayAudioFiles() {
   const audioFilesUl = document.getElementById("audioFilesUl");
 
@@ -90,7 +88,6 @@ function audioClicked(a) {
 C:&#92;WINDOWS&#92;SYSTEM32> ${a[1]} - ${a[0]}
                      <a href="#" onclick="return toggleMusic();">PAUSE/UNPAUSE</a><audio id="cmdAudio" src="res/audio/${a[1]}" type="audio/mpeg">
   `;
-  isPlaying = false;
   toggleMusic();
 }
 
@@ -98,14 +95,13 @@ function toggleMusic() {
   const audioPlayer = document.getElementById("cmdAudio");
   const cmdTitle = document.getElementById("cmdTitle");
 
-  if (isPlaying) {
+  if (!audioPlayer.paused) {
     audioPlayer.pause();
     cmdTitle.innerText = "Command Prompt - Paused";
   } else {
     audioPlayer.play();
     cmdTitle.innerText = "Command Prompt - Playing";
   }
-  isPlaying = !isPlaying;
 }
 
 (async () => {
