@@ -26,7 +26,9 @@ for (let i = 0; i < tabs.length; i++) {
 function openTab(event, tab) {
   const articles = tab.parentNode.querySelectorAll('[role="tabpanel"]');
   articles.forEach((p) => {
-    p.setAttribute("hidden", true);
+    if (p.id != "arturo" || tab.id == "quotesMenuEl") {
+      p.setAttribute("hidden", true);
+    }
   });
   const article = tab.parentNode.querySelector(
     `[role="tabpanel"]#${event.target.getAttribute("aria-controls")}`

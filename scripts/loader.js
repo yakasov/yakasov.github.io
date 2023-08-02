@@ -69,7 +69,7 @@ async function displayQuoteFiles() {
       quotesMenuEl.insertAdjacentHTML(
         "afterend",
         `
-        <article role="tabpanel" hidden id="${
+        <article role="tabpanel" id="${
           q[1].split(".")[0]
         }" class="inner-quote-article">
             <ul>${quotesListEl}</ul>
@@ -85,8 +85,8 @@ function audioClicked(a) {
   cmdPre.innerHTML = `Microsoft&#10094;R&#10095; Windows DOS 
 &#10094;C&#10095; Copyright Microsoft Corp 1990-2001.
 
-C:&#92;WINDOWS&#92;SYSTEM32> ${a[1]} - ${a[0]}
-                     <a href="#" onclick="return toggleMusic();">PAUSE/UNPAUSE</a><audio id="cmdAudio" src="res/audio/${a[1]}" type="audio/mpeg">
+C:&#92;Users&#92;yakasov&#92;Music&#92;${a[1]}> ${a[0]}
+<br><a class="cmd-pause" href="#" onclick="return toggleMusic();">PAUSE/UNPAUSE</a><audio id="cmdAudio" src="res/audio/${a[1]}" type="audio/mpeg">
   `;
   toggleMusic();
 }

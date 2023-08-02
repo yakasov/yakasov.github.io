@@ -60,6 +60,10 @@ article {
   font-weight: bold;
 }
 
+.cmd-pause {
+  color: #b7cdfc;
+}
+
 .h4-main {
   margin-bottom: 0;
 }
