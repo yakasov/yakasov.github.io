@@ -1,18 +1,27 @@
 const audioFiles = [
-  "ascension.mp3",
-  "charlieasked.mp3",
-  "corrupthdd.mp3",
-  "despacositafrica.mp3",
-  "DONOTLISTENTO.mp3",
-  "eminem_breaks_the_sound_barrier.mp3",
-  "FBC_FREESTYLE_2_FEAT_YUNG_GRAVY_PRIVATE!!!!DONOTDISTRIBUTE.mp3",
-  "fbc_freestyle.mp3",
-  "godsmessage.mp3",
-  "John_Cena_theme_midi_Version.mp3",
-  "mountainmomma.mp3",
-  "sing_along.mp3",
-  "the_fastest_rapper_alive.mp3",
-  "yesman.mp3",
+  ["Ali-A blesses the nations", "ascension.mp3"],
+  ["Smash Mouth but the years never come", "charlieasked.mp3"],
+  ["O̧̖̺͔̞̬̖͈͂̍̀̃́̚͢͟͡͞W̴̹̯̰̗̹̑̊͋̆̿̕", "corrupthdd.mp3"],
+  ["Disclaimer: made by Tom not me", "despacositafrica.mp3"],
+  ["The longer you listen the better", "DONOTLISTENTO.mp3"],
+  ["Self explanatory", "eminem_breaks_the_sound_barrier.mp3"],
+  [
+    "Dylusion's newest collab",
+    "FBC_FREESTYLE_2_FEAT_YUNG_GRAVY_PRIVATE!!!!DONOTDISTRIBUTE.mp3",
+  ],
+  ["Dylusion's hottest track", "fbc_freestyle.mp3"],
+  ["Despacito 2", "godsmessage.mp3"],
+  [
+    "World famous piano rendition of the John Cena theme",
+    "John_Cena_theme_midi_Version.mp3",
+  ],
+  ["Dylusion's newest EP", "mountainmomma.mp3"],
+  ["Country Roads", "sing_along.mp3"],
+  [
+    "Eminem goes mad after the loss of Busta Rhymes",
+    "the_fastest_rapper_alive.mp3",
+  ],
+  ["Resulted in a few death wishes", "yesman.mp3"],
 ];
 
 const quoteFiles = [
@@ -28,11 +37,15 @@ const quoteFiles = [
   ["Teachers", "teachers.html"],
 ];
 
+var isPlaying = false;
+
 async function displayAudioFiles() {
   const audioFilesUl = document.getElementById("audioFilesUl");
 
   audioFiles.forEach(
-    (a) => (audioFilesUl.innerHTML += `<li><a href="">${a}</a></li>`)
+    (a) =>
+      (audioFilesUl.innerHTML += `<li><a href="#" onclick="return audioClicked([\`${a[0]}\`, \`${a[1]}\`]);">${a[1]}</a></li>`)
+    // the audioClicked argument is stupid, right?
   );
 }
 
@@ -67,6 +80,32 @@ async function displayQuoteFiles() {
     `
     );
   });
+}
+
+function audioClicked(a) {
+  const cmdPre = document.getElementById("audioCmdPre");
+  cmdPre.innerHTML = `Microsoft&#10094;R&#10095; Windows DOS 
+&#10094;C&#10095; Copyright Microsoft Corp 1990-2001.
+
+C:&#92;WINDOWS&#92;SYSTEM32> ${a[1]} - ${a[0]}
+                     <a href="#" onclick="return toggleMusic();">PAUSE/UNPAUSE</a><audio id="cmdAudio" src="res/audio/${a[1]}" type="audio/mpeg">
+  `;
+  isPlaying = false;
+  toggleMusic();
+}
+
+function toggleMusic() {
+  const audioPlayer = document.getElementById("cmdAudio");
+  const cmdTitle = document.getElementById("cmdTitle");
+
+  if (isPlaying) {
+    audioPlayer.pause();
+    cmdTitle.innerText = "Command Prompt - Paused";
+  } else {
+    audioPlayer.play();
+    cmdTitle.innerText = "Command Prompt - Playing";
+  }
+  isPlaying = !isPlaying;
 }
 
 (async () => {
