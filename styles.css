@@ -1,0 +1,71 @@
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  height: 95%;
+  background-image: url("res/bliss.jpg");
+  overflow: hidden;
+}
+
+.content-body {
+  margin: 1%;
+  flex-grow: 1;
+}
+
+.window-body {
+  max-height: 93%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+article {
+  overflow: scroll;
+  max-height: inherit;
+  flex-grow: 1;
+}
+
+#quotes {
+  max-height: inherit;
+}
+
+.window {
+  display: flex;
+  flex-direction: column;
+}
+
+.inner-quote-article {
+  max-height: 95%;
+  overflow: scroll;
+}
+
+.cmd-window {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  width: 66%;
+  background: #000 !important;
+}
+
+.cmd-body {
+  max-height: 33%;
+  overflow: hidden;
+}
+
+.cmd-pre {
+  background: #000;
+  color: #ccc;
+  font-weight: bold;
+}
+
+.h4-main {
+  margin-bottom: 0;
+}
+
+.h4-sub {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: normal;
+}
