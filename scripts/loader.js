@@ -37,6 +37,18 @@ const quoteFiles = [
   ["Teachers", "teachers.txt"],
 ];
 
+const indexes = [
+  "index2019nov7",
+  "index2020feb10",
+  "index2020apr15",
+  "index2020may2",
+  "index2020may26",
+  "index2020jul11",
+  "index2020jul16",
+  "index2021jul16",
+  "index2022jan20",
+];
+
 async function displayAudioFiles() {
   const audioFilesUl = document.getElementById("audioFilesUl");
 
@@ -94,6 +106,31 @@ async function displayFBCFreestyleLyrics() {
   fbcFreestyleLyrics.innerHTML = lyrics;
 }
 
+async function displayIndexes() {
+  const indexesMenuEl = document.getElementById("indexesMenuEl");
+
+  indexes.forEach(async (i) => {
+    const index = await fetch(`./pages/indexes/${i}.html`)
+      .then((response) => {
+        if (response.ok) {
+          return response.text();
+        }
+      })
+      .then((data) => {
+        return data;
+      });
+
+    indexesMenuEl.insertAdjacentHTML(
+      "afterend",
+      `
+        <article role="tabpanel" id="${i}" class="inner-quote-article">
+            ${index}
+        </article>
+    `
+    );
+  });
+}
+
 function audioClicked(a) {
   const cmdPre = document.getElementById("audioCmdPre");
   cmdPre.innerHTML = `Microsoft&#10094;R&#10095; Windows DOS 
@@ -122,4 +159,5 @@ function toggleMusic() {
   await displayAudioFiles();
   await displayQuoteFiles();
   await displayFBCFreestyleLyrics();
+  await displayIndexes();
 })();
