@@ -10,6 +10,7 @@ body {
 }
 
 .content-body {
+  overflow: hidden;
   margin: 1%;
   flex-grow: 1;
 }
@@ -20,32 +21,48 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  overflow: scroll;
 }
 
 article {
-  overflow: scroll;
-  max-height: inherit;
   flex-grow: 1;
 }
 
+article[flex] {
+  display: flex;
+  flex-direction: column;
+}
+
 #quotes {
-  max-height: inherit;
+  & li {
+    margin-top: 8px;
+  }
+  & .quote-header {
+    font-weight: bold;
+  }
+}
+
+footer {
+  font-style: italic;
 }
 
 .window {
+  max-height: inherit;
   display: flex;
   flex-direction: column;
 }
 
 .inner-quote-article {
-  max-height: 95%;
-  overflow: scroll;
+  max-height: 93%;
 }
 
-.cmd-window {
+.article-window {
   margin-top: 12px;
   margin-bottom: 12px;
   width: 66%;
+}
+
+.cmd-window {
   background: #000 !important;
 }
 
@@ -72,4 +89,115 @@ article {
   font-size: 14px;
   font-style: italic;
   font-weight: normal;
+}
+
+.index2019nov7 {
+  text-align: center;
+  color: gray;
+  & h2 {
+    font-style: italic;
+    margin-top: 6em;
+  }
+}
+
+.index2020feb10 {
+  text-align: left;
+  background-image: linear-gradient(
+    to left,
+    rgb(34, 197, 252),
+    rgb(255, 145, 203)
+  );
+  & h1,
+  & h3 {
+    margin-top: 2em;
+    margin-left: 1em;
+    font-size: 2.5em;
+    color: gray;
+  }
+}
+
+.index2020jul11 {
+  font-size: 2.2em;
+  text-align: center;
+
+  margin: 0;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 50%);
+}
+
+.index2020jul16 {
+  background-image: url("https://64.media.tumblr.com/624cf3618e3518f6af4851390aeae5ae/tumblr_pv9bsbbwI31tmxp58o2_540.gifv");
+  background-size: cover;
+
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.index2020may2 {
+  background-image: linear-gradient(
+    to left,
+    rgb(34, 197, 252),
+    rgb(255, 145, 203)
+  );
+  & .discord-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding-top: 42%;
+  }
+  & .discord-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+  & p {
+    font-size: 1.4em;
+    color: gray;
+  }
+  & .p-sub {
+    text-align: right;
+    font-size: 0.8em;
+  }
+}
+
+.index2020may26 {
+  font-size: 2.2em;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+
+  margin: 0;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 50%);
+  & a {
+    font-size: 0.6em;
+  }
+}
+
+.index2021jul16 {
+  font-size: 2.2em;
+  font-style: italic;
+  text-align: center;
+
+  margin: 0;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 50%);
+}
+
+.index2022jan20 {
+  font-size: 2.2em;
+  font-style: italic;
+  text-align: center;
 }

@@ -32,9 +32,21 @@ const quoteFiles = [
   ["Josh", "josh.txt"],
   ["Parth", "parth.txt"],
   ["Tom", "tom.txt"],
-  ["Others", "others.html"],
-  ["Others (Crispins)", "others_crispins.html"],
-  ["Teachers", "teachers.html"],
+  ["Others", "others.txt"],
+  ["Others (Crispins)", "others_crispins.txt"],
+  ["Teachers", "teachers.txt"],
+];
+
+const indexes = [
+  "index2019nov7",
+  "index2020feb10",
+  "index2020apr15",
+  "index2020may2",
+  "index2020may26",
+  "index2020jul11",
+  "index2020jul16",
+  "index2021jul16",
+  "index2022jan20",
 ];
 
 async function displayAudioFiles() {
@@ -51,32 +63,71 @@ async function displayQuoteFiles() {
   const quotesMenuEl = document.getElementById("quotesMenuEl");
 
   quoteFiles.forEach(async (q) => {
-    if (!q[1].includes("html")) {
-      const quotes = await fetch(`./pages/quotes/${q[1]}`)
-        .then((response) => {
-          if (response.ok) {
-            return response.text();
-          }
-        })
-        .then((data) => {
-          return data;
-        });
+    const quotes = await fetch(`./res/quotes/${q[1]}`)
+      .then((response) => {
+        if (response.ok) {
+          return response.text();
+        }
+      })
+      .then((data) => {
+        return data;
+      });
 
-      const quotesList = quotes.split("\n").slice(1);
-      var quotesListEl = "";
+    const quotesList = quotes.split("\n").slice(1);
+    var quotesListEl = "";
 
-      quotesList.forEach((q) => (quotesListEl += `<li>${q}</li>`));
-      quotesMenuEl.insertAdjacentHTML(
-        "afterend",
-        `
+    quotesList.forEach((q) => (quotesListEl += `<li>${q}</li>`));
+    quotesMenuEl.insertAdjacentHTML(
+      "afterend",
+      `
         <article role="tabpanel" id="${
           q[1].split(".")[0]
         }" class="inner-quote-article">
             <ul>${quotesListEl}</ul>
         </article>
     `
-      );
-    }
+    );
+  });
+}
+
+async function displayFBCFreestyleLyrics() {
+  const fbcFreestyleLyrics = document.getElementById("fbcFreestyleLyrics");
+
+  const lyrics = await fetch("./res/fbc_freestyle.txt")
+    .then((response) => {
+      if (response.ok) {
+        return response.text();
+      }
+    })
+    .then((data) => {
+      return data;
+    });
+
+  fbcFreestyleLyrics.innerHTML = lyrics;
+}
+
+async function displayIndexes() {
+  const indexesMenuEl = document.getElementById("indexesMenuEl");
+
+  indexes.forEach(async (i) => {
+    const index = await fetch(`./pages/indexes/${i}.html`)
+      .then((response) => {
+        if (response.ok) {
+          return response.text();
+        }
+      })
+      .then((data) => {
+        return data;
+      });
+
+    indexesMenuEl.insertAdjacentHTML(
+      "afterend",
+      `
+        <article role="tabpanel" id="${i}" class="inner-quote-article">
+            ${index}
+        </article>
+    `
+    );
   });
 }
 
@@ -107,4 +158,6 @@ function toggleMusic() {
 (async () => {
   await displayAudioFiles();
   await displayQuoteFiles();
+  await displayFBCFreestyleLyrics();
+  await displayIndexes();
 })();
