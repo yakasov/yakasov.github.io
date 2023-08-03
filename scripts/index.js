@@ -33,12 +33,14 @@ function openTab(event, tab) {
       (p.id != currentIndexTab || tab.id == "indexesMenuEl")
     ) {
       p.setAttribute("hidden", true);
+      p.removeAttribute("flex");
     }
   });
   const article = tab.parentNode.querySelector(
     `[role="tabpanel"]#${event.target.getAttribute("aria-controls")}`
   );
   article.removeAttribute("hidden");
+  article.setAttribute("flex", true);
   if (tab.id == "quotesMenuEl") {
     currentQuoteTab = article.id;
   } else if (tab.id == "indexesMenuEl") {

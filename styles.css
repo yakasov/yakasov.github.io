@@ -28,6 +28,11 @@ article {
   flex-grow: 1;
 }
 
+article[flex] {
+  display: flex;
+  flex-direction: column;
+}
+
 #quotes {
   & li {
     margin-top: 8px;
