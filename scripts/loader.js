@@ -131,30 +131,6 @@ async function displayIndexes() {
   });
 }
 
-function audioClicked(a) {
-  const cmdPre = document.getElementById("audioCmdPre");
-  cmdPre.innerHTML = `Microsoft&#10094;R&#10095; Windows DOS 
-&#10094;C&#10095; Copyright Microsoft Corp 1990-2001.
-
-C:&#92;Users&#92;yakasov&#92;Music&#92;${a[1]}> ${a[0]}
-<br><a class="cmd-pause" href="#" onclick="return toggleMusic();">PAUSE/UNPAUSE</a><audio id="cmdAudio" src="res/audio/${a[1]}" type="audio/mpeg">
-  `;
-  toggleMusic();
-}
-
-function toggleMusic() {
-  const audioPlayer = document.getElementById("cmdAudio");
-  const cmdTitle = document.getElementById("cmdTitle");
-
-  if (!audioPlayer.paused) {
-    audioPlayer.pause();
-    cmdTitle.innerText = "Command Prompt - Paused";
-  } else {
-    audioPlayer.play();
-    cmdTitle.innerText = "Command Prompt - Playing";
-  }
-}
-
 (async () => {
   await displayAudioFiles();
   await displayQuoteFiles();
