@@ -20,32 +20,43 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  overflow: scroll;
 }
 
 article {
-  overflow: scroll;
-  max-height: inherit;
   flex-grow: 1;
 }
 
 #quotes {
-  max-height: inherit;
+  & li {
+    margin-top: 8px;
+  }
+  & .quote-header {
+    font-weight: bold;
+  }
+}
+
+footer {
+  font-style: italic;
 }
 
 .window {
+  max-height: inherit;
   display: flex;
   flex-direction: column;
 }
 
 .inner-quote-article {
-  max-height: 95%;
-  overflow: scroll;
+  max-height: 93%;
 }
 
-.cmd-window {
+.article-window {
   margin-top: 12px;
   margin-bottom: 12px;
   width: 66%;
+}
+
+.cmd-window {
   background: #000 !important;
 }
 
