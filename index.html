@@ -14,7 +14,9 @@
   <body>
     <div class="content-body window">
       <div class="title-bar">
-        <div class="title-bar-text">Yakasov's Page</div>
+        <div class="title-bar-text">
+          <a style="color: #fff" onclick="revealStories()">Yakasov's Page</a>
+        </div>
         <div class="title-bar-controls">
           <button aria-label="Minimize"></button>
           <button aria-label="Maximize"></button>
@@ -30,6 +32,13 @@
           <button aria-controls="quotes">Quotes</button>
           <button aria-controls="miscellaneous">Miscellaneous</button>
           <button aria-controls="indexes">Previous Indexes</button>
+          <button
+            aria-controls="stories"
+            style="visibility: hidden"
+            id="storiesButton"
+          >
+            Stories
+          </button>
         </menu>
 
         <article role="tabpanel" id="projects">
@@ -170,6 +179,8 @@ Microsoft&#10094;R&#10095; Windows DOS
             <button aria-controls="index2022jan20">Jan 20th 2022</button>
           </menu>
         </article>
+
+        <article role="tabpanel" hidden id="stories"></article>
       </div>
     </div>
   </body>

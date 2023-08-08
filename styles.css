@@ -200,3 +200,15 @@ footer {
   font-style: italic;
   text-align: center;
 }
+
+.stories-body {
+  max-height: none;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.stories-pre {
+  max-width: 100%;
+  white-space: pre-wrap;
+  font-family: monospace;
+}

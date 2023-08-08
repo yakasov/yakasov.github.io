@@ -71,3 +71,8 @@ function toggleMusic() {
     cmdTitle.innerText = "Command Prompt - Playing";
   }
 }
+
+function revealStories() {
+  const storiesButton = document.getElementById("storiesButton");
+  storiesButton.style = "";
+}
