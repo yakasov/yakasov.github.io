@@ -131,9 +131,42 @@ async function displayIndexes() {
   });
 }
 
+async function displayStories() {
+  const stories = await fetch(`./res/stories.json`)
+    .then((response) => {
+      if (response.ok) {
+        return response.text();
+      }
+    })
+    .then((data) => {
+      return JSON.parse(data);
+    });
+
+  const storiesEl = document.getElementById("stories");
+  stories.forEach((s) => {
+    storiesEl.innerHTML += `
+  <div class="window article-window">
+    <div class="title-bar">
+      <div class="title-bar-text">${s.name}</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize"></button>
+        <button aria-label="Maximize"></button>
+        <button aria-label="Close"></button>
+      </div>
+    </div>
+
+    <div
+      class="window-body stories-body"
+    ><pre class="stories-pre">${s.desc.replace("\n", "<br>")}</pre></div>
+  </div>
+  `;
+  });
+}
+
 (async () => {
   await displayAudioFiles();
   await displayQuoteFiles();
   await displayFBCFreestyleLyrics();
   await displayIndexes();
+  await displayStories();
 })();
