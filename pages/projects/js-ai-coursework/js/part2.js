@@ -1,1 +1,0 @@
-function part2Main() {}
