@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <script>
+      const searchParams = new URLSearchParams(window.location.search);
+      const link = searchParams.get("page");
+
+      if (link) {
+        window.location.href = "steam://openurl/" + link;
+      } else {
+        document.body.innerHTML = "<p>No link specified.</p>";
+      }
+    </script>
+  </body>
+</html>
