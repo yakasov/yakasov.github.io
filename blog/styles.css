@@ -1,0 +1,12 @@
+body {
+  background: #fad6a5;
+}
+
+.main {
+  padding: 2%;
+  border: 1px solid black;
+}
+
+.title {
+  font-size: 48px;
+}
