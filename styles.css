@@ -2,6 +2,12 @@ body {
   background: url(https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/original/4X/9/6/8/96816ef356d2f3feb560790de7b2824cf65a3cd2.png);
   background-repeat: repeat;
   color: white;
+  cursor: url(https://cur.cursors-4u.net/sports/spo-1/spo16.png), auto;
+
+  width: 100%;
+  max-width: 1278px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 a {
@@ -95,4 +101,20 @@ h4 {
 
 .grid-item p {
   text-align: center;
+}
+
+.talk {
+  font-size: 20px;
+}
+
+.quote {
+  font-style: italic;
+  font-size: 21px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }

@@ -1,6 +1,6 @@
 (function () {
   document.addEventListener("DOMContentLoaded", function () {
-    loadContent(); // Load dynamic content
+    loadContent();
   });
 
   function loadContent() {
