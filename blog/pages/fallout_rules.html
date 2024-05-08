@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:url" content="https://yakasov.github.io/" />
+    <link rel="stylesheet" href="/blog/styles.css" />
+  </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var links = document.querySelectorAll("a");
+
+      function hasChangeAttribute(element) {
+        for (let attr of element.attributes) {
+          if (attr.name.startsWith("change")) {
+            return attr.name;
+          }
+        }
+        return false;
+      }
+
+      links.forEach(function (link) {
+        var changeAttrName = hasChangeAttribute(link);
+        if (changeAttrName) {
+          link.className = "link";
+          link.href = "#" + changeAttrName;
+          link.textContent = "*";
+          link.removeAttribute(changeAttrName);
+        }
+      });
+    });
+
+    function toggleVisibility(button) {
+      var content = button.nextElementSibling;
+      if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block";
+        button.textContent = "Hide";
+      } else {
+        content.style.display = "none";
+        button.textContent = "Show";
+      }
+    }
+  </script>
+</html>
+
+<body>
+  <p class="title">Fallout TTRPG Rules (some adjustments by Yakasov)</p>
+  <div class="main">
+    <div class="item">
+      <h1>Core Rules</h1>
+      <div class="subsection">
+        <h2>Skill Checks (p13, 14)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          <ol>
+            <li>
+              choose attribute + skill.
+              <b>target number:</b> attribute + skill
+            </li>
+            <li>GM sets difficulty (1 - 5)</li>
+            <li>roll dice => base 2d + 1d per AP</li>
+            <li>
+              check for successes:<a change2></a>
+              <ul>
+                <li>a 20 is a crit success<a change1></a></li>
+                <li>
+                  a tagged skill results in a crit success if roll is above 20 -
+                  skill<a change3></a><br />
+                  <i>eg Sneak 3 means crit above 17 (20 - 3)</i>
+                </li>
+                <li>a 1 generates a <i>complication</i></li>
+                <li>if the number of successes > target, the check passes</li>
+                <li>each bonus success becomes an AP</li>
+                <li>you can improve the outcome by expending AP (p15)</li>
+              </ul>
+              a difficulty 0 is an automatic success, but generates no AP.
+              <br />
+              you can choose to attempt the check to gain AP, but also risk
+              complications<br /><br />
+              other players can provide assistance in most situations (GM
+              discretion). only 1d20 can be rolled.
+            </li>
+          </ol>
+          <h3>Opposed Tests (p16)</h3>
+          an opposed test occurs between a GM and a player. the GM buys bonus
+          dice with AP first, then the player.<br />the amount of successes the
+          GM rolls sets the difficulty for the player. the player then can
+          choose to spend AP to increase their dice.<br /><br />any excess
+          successes award AP on either side.
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Luck (p20)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          luck is <i>similar</i> (but not the same) to Hero Points. you gain
+          Luck points equal to your Luck value at the start of each quest.<br /><br />
+          Luck can be used for several things, such as
+          <ul>
+            <li>
+              <b>luck of the draw:</b> learn a helpful detail or fact about the
+              situation you're in. this is all up to GM discretion.
+            </li>
+            <li>
+              <b>stacked deck:</b> before attempting a skill check, LCK can be
+              used instead of the default attribute.
+            </li>
+            <li>
+              <b>lucky timing:</b> at the start of any round in combat, you may
+              interrupt the normal initiative order and take your turn early.
+            </li>
+            <li>
+              <b>miss fortune:</b> you can re-roll one (or more) dice. you may
+              re-roll one d20, or up to 3 Combat Dice, per point. <br />
+              you cannot re-roll an already re-rolled die, and you must accept
+              the new roll.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <h1>Combat (p24)</h1>
+      <div class="subsection">
+        <h2>Actions (p25, 26)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          per turn you can attempt one Minor and one Major action.<br />
+          a <b>Minor action</b> is something quick such as aiming or drawing a
+          weapon. <br />
+          a <b>Major action</b> is something that requires more concentration,
+          such as attacking, defending, hacking a computer or locking a pick.
+          <br />
+          <h3>Minor Actions (p25)</h3>
+          <ul>
+            <li>
+              <b>aim:</b> re-roll 1d20 on the first attack roll you make this
+              turn
+            </li>
+            <li>
+              <b>draw item:</b> draw an item you are carrying, or pick up
+              something within reach. you can also put something away as part of
+              this action.
+            </li>
+            <li>
+              <b>interact:</b> interact with your equipment or the environment
+            </li>
+            <li>
+              <b>move:</b> move up to one zone, to any position within Medium
+              range. you use your movement to stand up from prone.
+            </li>
+            <li>
+              <b>take chem:</b> administer a chem to yourself or someone willing
+              within reach
+            </li>
+          </ul>
+          <br />
+          <h3>Major Actions (p26)</h3>
+          <ul>
+            <li>
+              <b>assist:</b> assist another character with their check. you can
+              pass your turn to wait for their turn to provide assistance
+            </li>
+            <li><b>attack:</b> make a melee or ranged attack</li>
+            <li>
+              <b>command an npc:</b> if you have an allied NPC, you can choose a
+              single major action for them to take.<br />if the action requires
+              a check, you automatically assist with the following rules:
+              <ul>
+                <li>if the NPC is a person: <b>CHA + Speech</b></li>
+                <li>if the NPC is an animal: <b>CHA + Survival</b></li>
+                <li>if the NPC is a robot: <b>INT + Science</b></li>
+              </ul>
+            </li>
+            <li>
+              <b>defend:</b> make an <b>AGI + Athletics</b> check with a
+              difficulty equal to your Defense. on a success, add 1 to
+              Defense.<br />
+              you can spend 2 AP to add an additional 1 to your Defense.
+            </li>
+            <li>
+              <b>first aid:</b> make an <b>INT + Medicine</b> check with a
+              difficulty equal to the number of injuries you are trying to
+              treat. add 1 if performing first aid on yourself.<br />
+              on a success, you can:
+              <ul>
+                <li>heal HP equal to your Medicine rating</li>
+                <li>treat one injury the patient is suffering from</li>
+                <li>stabilize a dying patient</li>
+              </ul>
+            </li>
+            <li><b>pass:</b> do nothing</li>
+            <li>
+              <b>rally:</b> make an <b>END + Survival</b> check with a
+              difficulty of 0, and save any generated AP
+            </li>
+            <li>
+              <b>ready:</b> describe a situation you expect to occur, and choose
+              an action to execute if it does. if it occurs, you can act as soon
+              as it does.
+            </li>
+            <li>
+              <b>sprint:</b> you can move up to two zones, to anywhere within
+              Long range
+            </li>
+            <li>
+              <b>test:</b> perform a skill check for an action not covered by
+              other actions (GM discretion)
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Attacking (p27)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          <ol>
+            <li>
+              <b>choose weapon and target:</b> target an enemy you can see with
+              a weapon you have.<br />you can choose to target a specific
+              location on the enemy. this increases the attack difficulty by 1.
+            </li>
+            <li>
+              <b>attempt a check:</b>
+              the difficulty for any check is equal to your target's Defense.
+              any ranged attack is also modified by range to the target.
+              <ul class="no-margin">
+                <li>
+                  <b>melee weapons:</b> roll a <b>STR + Melee Weapons</b> check
+                </li>
+                <li>
+                  <b>ranged weapons:</b> the check depends on the weapon used:
+                  <ul>
+                    <li><b>small guns:</b> roll <b>AGI + Small Guns</b></li>
+                    <li><b>big guns:</b> roll <b>END + Big Guns</b></li>
+                    <li>
+                      <b>energy weapons:</b> roll <b>PER + Energy Weapons</b>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <b>thrown weapons:</b> roll a <b>PER + Explosives</b>
+                  <i>or</i> an <b>AGI + Throwing</b> check
+                </li>
+                <li><b>unarmed:</b> roll a <b>STR + Unarmed</b> check</li>
+              </ul>
+              if you are within melee range of an enemy, the difficulty of the
+              ranged check is increased by 2 (p28)
+            </li>
+            <li>
+              <b>determine hit location:</b> if a specific hit location has not
+              already been chosen during the attack check, roll a hit location
+              die (or 1d20)
+            </li>
+            <li>
+              <b>inflict damage:</b> roll the number of Combat Dice listed by
+              the weapon's damage rating, plus any bonuses from derived
+              statistics, AP or ammo spent.<br /><br />damage is reduced by the
+              target's DR against the attack's damaged type at the location hit.
+            </li>
+          </ol>
+          <br />
+          <h3>Range (p28)</h3>
+          ranged and thrown weapons can be used against any target you can see,
+          but lose effectiveness if not used within their ideal range.<br />the
+          ideal ranges are:
+          <ul>
+            <li>
+              <b>Close (C):</b> most effective against targets within the same
+              zone
+            </li>
+            <li>
+              <b>Medium (M):</b> most effective against targets in an adjacent
+              zone
+            </li>
+            <li>
+              <b>Long (L):</b> most effective against targets two zones away
+            </li>
+            <li>
+              <b>Extreme (X):</b> most effective against targets three or more
+              zones away
+            </li>
+          </ul>
+          the difficulty of a ranged attack increases by 1 for each range band
+          outside of the weapon's ideal range
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Movement</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          blah
+          <h3>Prone (p25)</h3>
+          when prone, you crawl - movement becomes a Major action rather than a
+          Minor action.<br /><br />enemies at Medium range or further add +1 to
+          difficulty of attacks against you;<br />however, enemies at Close
+          range reduce the difficulty of attacks by 1.<br /><br />whilst prone,
+          you can re-roll any cover dice you have
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Initiative (p24)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          your <b>player character</b> initiative is PER + AGL.
+          <b>creature NPC</b> initiative is Body + Mind.
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <h1>Fallout-specific Rules</h1>
+      <div class="subsection">
+        <h2>Complications (p15)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          rolling a 1 can result in a complication<a change4></a>. these can
+          affect things immediately or impact future checks.<br />complications
+          do not stop checks from succeeding<br /><br />
+          difficult actions can result in complications at higher rolls (p17).
+          for example, a difficulty 3 roll could create complications at a roll
+          of 3 or below<a change4></a>.<br /><br />
+          in some cases, the GM may allow a success even when the success goal
+          was not hit. <br />
+          this can be done at the cost of complications being given as a trade
+          off.
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Action Points (p18)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          AP (Action Points) can be generated by getting excess successes.
+          <br />
+          they can be used to take extra actions, improve outcomes, and more.
+          <ul>
+            <li>
+              <b>buy d20s (1 - 6 AP):</b> buy bonus d20s for a test before any
+              dice are rolled, but after the difficulty has been set for the
+              check. each bonus die costs more AP.<br /><i
+                >2d20: 0 AP, 3d20: +1 AP, 4d20: +3 AP, 5d20: +6 AP</i
+              >
+            </li>
+            <li>
+              <b>obtain information (1 AP):</b> the GM must answer truthfully -
+              but not necessarily completely.
+            </li>
+            <li>
+              <b>reduce time (2 AP):</b> if a check takes time, 2 AP can be
+              expended to halve the time to complete.
+            </li>
+          </ul>
+          <br />
+          additionally, in combat (p26):
+          <ul>
+            <li>
+              <b>take additional minor action (1 AP):</b> you can only take 2
+              minor actions in a single round.
+            </li>
+            <li>
+              <b>take additional major action (2 AP):</b> you can only take 2
+              major actions in a single round. <br />
+              any skill check has its difficulty raised by +1.
+            </li>
+            <li>
+              <b>add extra damage (1 - 3 AP):</b> on a successful melee or
+              thrown weapon attack, you can spend AP to add an additional Combat
+              Dice.
+            </li>
+          </ul>
+          <br />
+          you can pool and save up to 6 AP as a group. <br />
+          each quest gives the GM 1 AP per player.
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Hit Locations (p28)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          there are 6 body parts that can be hit:
+          <table>
+            <tr>
+              <th>D20 Roll</th>
+              <th>Humanoid</th>
+              <th>Quadruped</th>
+              <th>Flying Insect</th>
+            </tr>
+            <tr>
+              <td>1 - 2</td>
+              <td>Head</td>
+              <td>Head</td>
+              <td>Head</td>
+            </tr>
+            <tr>
+              <td>3 - 8</td>
+              <td>Torso</td>
+              <td>Torso</td>
+              <td>Torso</td>
+            </tr>
+            <tr>
+              <td>9 - 11</td>
+              <td>Left Arm</td>
+              <td>Left Front Leg</td>
+              <td>Left Wing (as Leg)</td>
+            </tr>
+            <tr>
+              <td>12 - 14</td>
+              <td>Right Arm</td>
+              <td>Right Front Leg</td>
+              <td>Right Wing (as Leg)</td>
+            </tr>
+            <tr>
+              <td>15 - 17</td>
+              <td>Left Leg</td>
+              <td>Left Hind Leg</td>
+              <td>Legs</td>
+            </tr>
+            <tr>
+              <td>18 - 20</td>
+              <td>Right Leg</td>
+              <td>Right Hind Leg</td>
+              <td>Legs</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Combat Dice</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          the amount of Combat Dice you roll is equal to the
+          <i>damage rating</i> of your weapon. some rolls have different effects
+          <table>
+            <tr>
+              <th>D6 Roll</th>
+              <th>Combat Dice Result&nbsp;&nbsp;</th>
+              <th>Damage and Effects</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>
+                <img src="/blog/res/fallout/d1.webp" />
+              </td>
+              <td>1 damage</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>
+                <img src="/blog/res/fallout/d2.webp" />
+              </td>
+              <td>2 damage</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>
+                <img src="/blog/res/fallout/d3.webp" />
+              </td>
+              <td>Nothing</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>
+                <img src="/blog/res/fallout/d3.webp" />
+              </td>
+              <td>Nothing</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>
+                <img src="/blog/res/fallout/d6.webp" />
+              </td>
+              <td>1 damage + damage effects trigger</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>
+                <img src="/blog/res/fallout/d6.webp" />
+              </td>
+              <td>2 damage + damage effects trigger<a change5></a></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <h1>Changes to normal Fallout TTRPG</h1>
+      <div class="subsection">
+        <ol>
+          <li id="change1">
+            in skill checks, a 20 on a check is a crit success, as opposed to a
+            1
+          </li>
+          <li id="change2">
+            skill checks must meet or beat their target, rather than meet or be
+            below
+          </li>
+          <li id="change3">
+            this expands to tag successes, where 20 - skill is required for a
+            crit success
+          </li>
+          <li id="change4">
+            a 1 is a complication to mirror 20 being a critical success
+          </li>
+          <li id="change5">increased from 1 damage in normal TTRPG</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</body>

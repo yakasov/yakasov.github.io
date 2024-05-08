@@ -33,3 +33,51 @@ figcaption {
   font-size: small;
   color: #666;
 }
+
+.subsection {
+  text-indent: 25px each-line;
+
+  div {
+    display: none;
+  }
+
+  h2,
+  button {
+    display: inline;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: red;
+}
+
+table {
+  margin: 25px;
+}
+
+th {
+  text-align: left;
+}
+
+li {
+  margin-bottom: 4px;
+}
+
+table th,
+table td {
+  padding: 0px 10px;
+}
+
+table img {
+  max-height: 32px !important;
+  max-width: 32px !important;
+}
+
+.no-margin {
+  li {
+    margin-bottom: 0px;
+  }
+}
