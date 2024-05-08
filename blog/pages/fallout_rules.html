@@ -22,9 +22,10 @@
       links.forEach(function (link) {
         var changeAttrName = hasChangeAttribute(link);
         if (changeAttrName) {
+          var num = changeAttrName.replace("change", "");
           link.className = "link";
           link.href = "#" + changeAttrName;
-          link.textContent = "*";
+          link.innerHTML = `<sup>${num}</sup>`;
           link.removeAttribute(changeAttrName);
         }
       });
