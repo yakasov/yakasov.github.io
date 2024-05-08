@@ -72,8 +72,8 @@ table td {
 }
 
 table img {
-  max-height: 32px !important;
-  max-width: 32px !important;
+  max-height: 24px !important;
+  max-width: 24px !important;
 }
 
 .no-margin {
