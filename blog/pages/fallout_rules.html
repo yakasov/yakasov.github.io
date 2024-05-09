@@ -29,6 +29,18 @@
           link.removeAttribute(changeAttrName);
         }
       });
+
+      document
+        .getElementById("masterToggle")
+        .addEventListener("click", function () {
+          var allButtons = document.querySelectorAll(".subsection button");
+          allButtons.forEach(function (button) {
+            toggleVisibility(button);
+          });
+        });
+
+      // dumb way to show all sections from start
+      document.getElementById("masterToggle").click();
     });
 
     function toggleVisibility(button) {
@@ -48,9 +60,10 @@
   <p class="title">Fallout TTRPG Rules (some adjustments by Yakasov)</p>
   <div class="main">
     <div class="item">
+      <button id="masterToggle">Toggle All</button>
       <h1>Core Rules</h1>
       <div class="subsection">
-        <h2>Skill Checks (p13, 14)</h2>
+        <h2>Skill Checks<a change7></a> (p13, 14)</h2>
         <button onclick="toggleVisibility(this)">Show</button>
         <div>
           <ol>
@@ -188,7 +201,7 @@
               treat. add 1 if performing first aid on yourself.<br />
               on a success, you can:
               <ul>
-                <li>heal HP equal to your Medicine rating</li>
+                <li>heal HP equal to your <b>Medicine</b> rating</li>
                 <li>treat one injury the patient is suffering from</li>
                 <li>stabilize a dying patient</li>
               </ul>
@@ -294,6 +307,79 @@
 
       <br /><br />
       <div class="subsection">
+        <h2>Damage Types (p30)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          there are four types of damage:
+          <ul>
+            <li>
+              <b>physical:</b> unarmed attacks, blunt force, slashing and
+              stabbing, ballistics
+            </li>
+            <li><b>energy:</b> laser, plasma, and flame weapons</li>
+            <li><b>radiation:</b> exposure to RADs, or nuclear weaponry</li>
+            <li>
+              <b>poison:</b> toxins, chemicals, and creature stings and barbs
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Damage Effects (p30)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          <ul>
+            <li>
+              <b>burst:</b>
+              the attack hits one additional target within Close range of the
+              primary target for each Effect rolled.<br />each additional target
+              spends 1 additional unit of ammo
+            </li>
+            <li>
+              <b>breaking:</b> for each Effect rolled, reduce a target's cover
+              by 1 permanently. <br />
+              if not in cover, reduce the DR of the location struck by 1
+              dependent on the damage type
+            </li>
+            <li>
+              <b>persistent:</b> if one or more Effects are rolled, the target
+              suffers the weapon's damage again at the end of &#119909; turns
+              equal to the number of Effects rolled.<br />the target can spend a
+              major action to attempt to stop the persistent damage early with a
+              difficulty equal to the number of Effects rolled and the check
+              being <i>attribute + skill</i> (GM discretion)
+            </li>
+            <li>
+              <b>piercing &#119909;:</b> ignore &#119909; points of the target's
+              DR for each Effect rolled (where &#119909; is the rating of the
+              Effect)
+            </li>
+            <li>
+              <b>radioactive:</b> for each Effect rolled, the target suffers 1
+              point of radiation damage
+            </li>
+            <li>
+              <b>spread:</b> for each Effect rolled, your attack inflicts an
+              additional hit at a random location on the target with half damage
+              (rounded down)
+            </li>
+            <li>
+              <b>stun:</b> if one or more Effects are rolled, the target cannot
+              take any actions on their next turn. they can still spend AP to
+              take additional actions
+            </li>
+            <li>
+              <b>vicious:</b> the attacks inflict 1 additional damage for each
+              Effect rolled
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
         <h2>Movement</h2>
         <button onclick="toggleVisibility(this)">Show</button>
         <div>
@@ -315,6 +401,208 @@
           your <b>player character</b> initiative is PER + AGL.
           <b>creature NPC</b> initiative is Body + Mind.
         </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <h1>Damage and Injury (p32)</h1>
+      <div class="subsection">
+        <h2>Critical Hits and Injuries (p32)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          a <b>critical hit</b> occurs when a character suffers
+          <i>five or more damage in one hit</i> (after reductions). this causes
+          a penalty dependent on location hit:
+          <ul>
+            <li>
+              <b>arm:</b> your arm is broken - you drop any object held in that
+              hand, and you cannot perform any actions using that arm.
+            </li>
+            <li>
+              <b>leg:</b> your leg is broken - you immediately fall prone, and
+              can no longer Sprint. any Move action is now a Major action.
+            </li>
+            <li>
+              <b>torso:</b> you begin bleeding heavily. at the end of each
+              subsequent turn, you suffer 2 physical damage, ignore all DR
+            </li>
+            <li>
+              <b>head:</b> you are dazed and stunned for your next turn, and
+              suffer +2 difficulty to all vision-based checks
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Dying (p32)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          when reduced to 0hp, the character suffers an injury to the location
+          struck, then fall prone and start <b>dying.</b><br />if they suffer a
+          critical hit when reduced to 0hp, they suffer three injuries.<br /><br />whilst
+          dying, they are unconscious, cannot recover HP from the First Aid
+          action, and cannot take any actions.<br />at the start of each turn,
+          they must succeed an <b>END + Survival</b> check, with a difficulty
+          equal to the number of injures they have, and a complication range of
+          19-20.<br /><br />if this check is passed, they survive that turn; if
+          not, they die.<br />if they suffer any damage whilst dying, they gain
+          another injury.
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Healing (p33)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          outside of the <i>First Aid</i> major action, there are other elements
+          of healing: <br /><br />
+          <h3>Stabilizing (p34)</h3>
+          after succeeding a <i>First Aid</i> check, a patient can be stabilized
+          to 1hp. this also prevents them from dying, meaning they no longer
+          have to make checks to survive. the character remains unconscious.
+          <br /><br />
+          if <i>radiation damage</i> has reduced their maximum hit points to 0,
+          they cannot be stabilized until they have at least 1 max HP.<br /><br />
+          AP can be spent to heal additional health points when stabilized at a
+          rate of 1 AP to 1 bonus HP. <br />1 AP can also be spent to wake them
+          from unconsciousness. <br /><br />
+          <h3>Regaining Health (p34)</h3>
+          passing a <i>First Aid</i> check will allow you to heal a number of
+          hit points equal to your rank in Medicine.<br />you can heal an
+          additional HP per AP spent.<br /><br />you can only heal the hit
+          points of a stable character. <br />
+          <br />
+          <h3>Treating an Injury (p34)</h3>
+          succeeding a <i>First Aid</i> check allows a patient to ignore the
+          penalties of their injury - it is only patched up in this manner and
+          not permanently healed.<br /><br />when a character suffers damage to
+          a location of a treated injury, roll a d3<a change6></a> - if you roll
+          a 1, the damage re-opens the wound and the character is injured again.
+          <br /><br />
+          <h3>Using Stimpaks (p34, 169)</h3>
+          with the <b>Take Chem</b> minor action, the stimpak is injected and
+          recovers 4 HP or treats 1 injury. this can stabilize a patient as
+          well.<br /><br />with the <b>First Aid</b> major action, you may
+          administer a stimpak as part of the action. the target regains 4 HP,
+          and any spent AP heals twice as much HP. <br /><br />
+          <h3>Healing Robots (p34)</h3>
+          robots and other machines cannot recover from injuries naturally;
+          however, robot repair kits can be used in place of stimpaks.
+          <br /><br />
+          attempting <b>First Aid</b> on a robot, a suit of power armour, or
+          other large machines requires an <b>INT + Repair</b> check with a
+          difficulty of 2.<br />this increases by 1 for each injury the machine
+          has suffered.<br />passing the check restores HP equal to your
+          <b>Repair</b> rating, treats an injury, or stabilizes a dying
+          machine.<br /><br />machines cannot use chems or heal through eating,
+          drinking or resting. outside of combat, an hour's work on a damaged
+          machine restores HP equal to twice the <b>Repair</b> rating used.
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Long-Term Recovery (p35)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          there are three key ways to recover outside of combat:<br /><br />
+          <h3>Rest (p35)</h3>
+          resting for at least 6 hours regains all lost HP; resting for 8 in an
+          owned bed boosts max HP by 2.
+          <br /><br />
+          when you sleep, injuries can be healed with an
+          <b>END + Survival</b> check with a difficulty of 1. the complication
+          range of this test increases by 1 for each untreated injury.<br />if
+          the check succeeds, one injury can be recovered, with an additional
+          injury for every 2 AP spent. <br /><br />
+          <h4>Injury Recovery Difficulty</h4>
+          <table>
+            <tr>
+              <th>Activity</th>
+              <th>Difficulty</th>
+            </tr>
+            <tr>
+              <td>Restful (no strenuous activity all day)</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Light (a small amount of travel or similar)</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Moderate (travel or combat, but not both)<a change8></a></td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>Heavy (travel and combat)</td>
+              <td>4</td>
+            </tr>
+          </table>
+          <br />
+          <h3>Food & Drink (p35, 149)</h3>
+          food and drink restores the HP listed in their description. some
+          consumables cannot be used during combat, especially if consumed
+          raw.<br />
+          roll a d3<a change6></a> when consuming irradiated food or drink; on a
+          1, you suffer 1 Radiation damage. <br /><br />
+          <h3>Medical Attention (p35, 194)</h3>
+          characters may require long-term medical care if they've been injured,
+          poisoned, or are suffering from a disease.<br />a single character can
+          provide medical attention for a number of patients equal to their
+          <b>Medicine</b> rating. <br /><br />for injuries, each day of rest a
+          patient receives allows you to assist their <b>END + Survival</b> test
+          at the end of the day to heal their injuries using your own
+          <b>INT + Medicine.</b><br /><br />
+          for poisons and diseases, you may still assist the check. if the
+          patient spent the entire day resting, they reduce the difficulty of
+          this test by 1.
+          <br /><br />
+          <h3>Recovering from Rads (p35)</h3>
+          radiation damage can <i>only</i> be removed by administering RadAway
+          or any other chems that remove radiation damage. <br />
+          radiation damage is removed before any healing is applied if both are
+          applied in the same turn.
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <h1>Environment (p36)</h1>
+      <div class="subsection">
+        <h2>Cover (p38)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div></div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Difficult Terrain and Obstacles(p38)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div></div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Environment Conditions (p38)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div></div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Hazards (p39)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div></div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Dangerous Objects (p39)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div></div>
       </div>
     </div>
 
@@ -441,7 +729,7 @@
 
       <br /><br />
       <div class="subsection">
-        <h2>Combat Dice</h2>
+        <h2>Combat Dice (p29)</h2>
         <button onclick="toggleVisibility(this)">Show</button>
         <div>
           the amount of Combat Dice you roll is equal to the
@@ -495,6 +783,28 @@
               <td>2 damage + damage effects trigger<a change5></a></td>
             </tr>
           </table>
+          <br />
+          <h3>Increasing Damage</h3>
+          <b>for melee, unarmed and thrown weapons,</b> up to 3 Combat Dice can
+          be bought using AP.<br /><b>for ranged weapons,</b> each unit of
+          ammunition can be spent to add 1 Combat Die. ammo can be spent up to
+          the weapon's fire rate<br />
+          <i
+            >eg a 10mm pistol with a fire rate of 2 can spend 2 additional
+            bullets</i
+          >
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Radiation Damage (p31)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          radiation damage is applied after normal damage, and reduces the
+          character's <b>maximum health points.</b><br />
+          if radiation damage would affect the whole body, then the lowest
+          locational radiation DR is used.
         </div>
       </div>
     </div>
@@ -519,6 +829,11 @@
             a 1 is a complication to mirror 20 being a critical success
           </li>
           <li id="change5">increased from 1 damage in normal TTRPG</li>
+          <li id="change6">simplified from a Combat Die</li>
+          <li id="change7">
+            changed from 'test' to 'check' for consistency across DND
+          </li>
+          <li id="change8">changed from 'travel, but no combat'</li>
         </ol>
       </div>
     </div>
