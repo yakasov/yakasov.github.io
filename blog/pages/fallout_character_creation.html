@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:url" content="https://yakasov.github.io/" />
+    <link rel="stylesheet" href="/blog/styles.css" />
+  </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var links = document.querySelectorAll("a");
+
+      function hasChangeAttribute(element) {
+        for (let attr of element.attributes) {
+          if (attr.name.startsWith("change")) {
+            return attr.name;
+          }
+        }
+        return false;
+      }
+
+      links.forEach(function (link) {
+        var changeAttrName = hasChangeAttribute(link);
+        if (changeAttrName) {
+          var num = changeAttrName.replace("change", "");
+          link.className = "link";
+          link.href = "#" + changeAttrName;
+          link.innerHTML = `<sup>${num}</sup>`;
+          link.removeAttribute(changeAttrName);
+        }
+      });
+
+      document
+        .getElementById("masterToggle")
+        .addEventListener("click", function () {
+          var allButtons = document.querySelectorAll(".subsection button");
+          allButtons.forEach(function (button) {
+            toggleVisibility(button);
+          });
+        });
+
+      // dumb way to show all sections from start
+      document.getElementById("masterToggle").click();
+    });
+
+    function toggleVisibility(button) {
+      var content = button.nextElementSibling;
+      if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block";
+        button.textContent = "Hide";
+      } else {
+        content.style.display = "none";
+        button.textContent = "Show";
+      }
+    }
+  </script>
+</html>
+
+<body>
+  <p class="title">
+    Fallout TTRPG Character Creation (some adjustments by Yakasov)
+  </p>
+  <div class="main">
+    <div class="item">
+      <button id="masterToggle">Toggle All</button>
+      <h1>Core Rules</h1>
+      <div class="subsection">
+        <h2>Skill Checks<a change1></a> (p13, 14)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div></div>
+      </div>
+    </div>
+
+    <div class="item">
+      <h1>Changes to normal Fallout TTRPG</h1>
+      <div class="subsection">
+        <ol>
+          <li id="change1">
+            skill checks must meet or beat their target, rather than meet or be
+            below
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</body>

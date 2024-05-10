@@ -95,8 +95,8 @@
               discretion). only 1d20 can be rolled.
             </li>
           </ol>
-          <h3>Opposed Tests (p16)</h3>
-          an opposed test occurs between a GM and a player. the GM buys bonus
+          <h3>Opposed Checks<a change7></a> (p16)</h3>
+          an opposed check occurs between a GM and a player. the GM buys bonus
           dice with AP first, then the player.<br />the amount of successes the
           GM rolls sets the difficulty for the player. the player then can
           choose to spend AP to increase their dice.<br /><br />any excess
@@ -180,6 +180,10 @@
             </li>
             <li><b>attack:</b> make a melee or ranged attack</li>
             <li>
+              <b>check:</b> perform a skill check for an action not covered by
+              other actions (GM discretion)
+            </li>
+            <li>
               <b>command an npc:</b> if you have an allied NPC, you can choose a
               single major action for them to take.<br />if the action requires
               a check, you automatically assist with the following rules:
@@ -219,10 +223,6 @@
             <li>
               <b>sprint:</b> you can move up to two zones, to anywhere within
               Long range
-            </li>
-            <li>
-              <b>test:</b> perform a skill check for an action not covered by
-              other actions (GM discretion)
             </li>
           </ul>
         </div>
@@ -515,7 +515,7 @@
           <br /><br />
           when you sleep, injuries can be healed with an
           <b>END + Survival</b> check with a difficulty of 1. the complication
-          range of this test increases by 1 for each untreated injury.<br />if
+          range of this check increases by 1 for each untreated injury.<br />if
           the check succeeds, one injury can be recovered, with an additional
           injury for every 2 AP spent. <br /><br />
           <h4>Injury Recovery Difficulty</h4>
@@ -553,12 +553,12 @@
           poisoned, or are suffering from a disease.<br />a single character can
           provide medical attention for a number of patients equal to their
           <b>Medicine</b> rating. <br /><br />for injuries, each day of rest a
-          patient receives allows you to assist their <b>END + Survival</b> test
-          at the end of the day to heal their injuries using your own
-          <b>INT + Medicine.</b><br /><br />
+          patient receives allows you to assist their
+          <b>END + Survival</b> check at the end of the day to heal their
+          injuries using your own <b>INT + Medicine.</b><br /><br />
           for poisons and diseases, you may still assist the check. if the
           patient spent the entire day resting, they reduce the difficulty of
-          this test by 1.
+          this check by 1.
           <br /><br />
           <h3>Recovering from Rads (p35)</h3>
           radiation damage can <i>only</i> be removed by administering RadAway
@@ -574,35 +574,229 @@
       <div class="subsection">
         <h2>Cover (p38)</h2>
         <button onclick="toggleVisibility(this)">Show</button>
-        <div></div>
+        <div>
+          Cover provides additional DR against physical and energy-based
+          attacks. some objects in the environment will provide DR as a number
+          of Combat Dice.<br />when attacked by these attacks whilst behind
+          cover, add the bonus in the Cover Values table to your DR for that
+          attack.<a change9></a><br /><br />you cannot be targeted if you are
+          fully obscured by cover.
+          <br />
+          <h4>Cover Values</h4>
+          <table>
+            <tr>
+              <th>Cover Type</th>
+              <th>DR Bonus<a change9></a></th>
+            </tr>
+            <tr>
+              <td>Foliage, Wood</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Rubble, Brick Walls, Metal Fencing</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Concrete Walls, Steel Barricades</td>
+              <td>3</td>
+            </tr>
+          </table>
+        </div>
       </div>
 
       <br /><br />
       <div class="subsection">
-        <h2>Difficult Terrain and Obstacles(p38)</h2>
+        <h2>Difficult Terrain and Obstacles (p38)</h2>
         <button onclick="toggleVisibility(this)">Show</button>
-        <div></div>
+        <div>
+          <b>difficult terrain</b> describes any ground that requires more
+          effort to cross.<br /><b>obstacles</b> exists <i>between</i> zones,
+          and slow progress when moving across these zones.<br />to cross
+          difficult terrain, you must spend AP; if you do not have any AP, you
+          must generate some.<br /><br />the easiest way to do this is to Rally
+          and succeed at a difficulty 0 <b>STR + Athletics</b> check.
+          <br />
+          <h4>Difficult Terrain and Obstacle Examples</h4>
+          <table>
+            <tr>
+              <th>Terrain</th>
+              <th>AP Cost</th>
+            </tr>
+            <tr>
+              <td>Thick mud, loose sand, up stairs</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Swamp, unstable rubble</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Steep slope, fast-flowing water</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <th>Obstacle</th>
+              <th></th>
+            </tr>
+            <tr>
+              <td>Up to waist-height/short jump</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Up to chest-height/short jump with run-up</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Taller than you/long jump</td>
+              <td>3</td>
+            </tr>
+          </table>
+        </div>
       </div>
 
       <br /><br />
       <div class="subsection">
         <h2>Environment Conditions (p38)</h2>
         <button onclick="toggleVisibility(this)">Show</button>
-        <div></div>
+        <div>
+          some conditions affect multiple zones or even the whole environment.
+          some examples are:
+          <ul>
+            <li>
+              <b>poor lighting/darkness:</b> <b>PER</b> checks that rely on
+              vision and all ranged attacks increase in difficulty (dependent on
+              the light level)
+            </li>
+            <li>
+              <b>mist and fog:</b> <b>PER</b> checks that rely on vision and all
+              ranged attacks increase in difficulty by 1 when the target is at
+              Medium range or further
+            </li>
+            <li>
+              <b>rain:</b> ranged attacks with <b>Energy Weapons</b> and
+              <b>Survival</b> checks increase in difficulty (dependent on how
+              heavy the rain is)
+            </li>
+            <li>
+              <b>radstorm:</b> any creature not in shelter suffers 2<a
+                change10
+              ></a>
+              radiation damage at the start of each turn
+            </li>
+          </ul>
+        </div>
       </div>
 
       <br /><br />
       <div class="subsection">
         <h2>Hazards (p39)</h2>
         <button onclick="toggleVisibility(this)">Show</button>
-        <div></div>
+        <div>
+          hazards are parts of the environment that inflict damage
+          <br />
+          <h4>Hazard Examples</h4>
+          <table>
+            <tr>
+              <th>Hazard</th>
+              <th>Damage<a change10></a></th>
+            </tr>
+            <tr>
+              <td>Falling debris</td>
+              <td>3 Physical damage</td>
+            </tr>
+            <tr>
+              <td>Falling</td>
+              <td>3 Stun Physical damage per zone fallen</td>
+            </tr>
+            <tr>
+              <td>Open flame</td>
+              <td>2 Energy damage</td>
+            </tr>
+            <tr>
+              <td>Raging fire</td>
+              <td>3 Persistent Energy damage</td>
+            </tr>
+            <tr>
+              <td>Electrical discharge</td>
+              <td>3 Stun Energy damage</td>
+            </tr>
+            <tr>
+              <td>Toxic chemical (spill)</td>
+              <td>2 Poison damage</td>
+            </tr>
+            <tr>
+              <td>Toxic chemicals (immersed)</td>
+              <td>3 Persistent Poison damage</td>
+            </tr>
+            <tr>
+              <td>Irradiated water</td>
+              <td>2 Persistent Radiation damage</td>
+            </tr>
+            <tr>
+              <td>Irradiated air</td>
+              <td>2 Piercing Radiation damage</td>
+            </tr>
+            <tr>
+              <td>Close proximity to radioactive waste or materials</td>
+              <td>5 Radiation damage</td>
+            </tr>
+          </table>
+        </div>
       </div>
 
       <br /><br />
       <div class="subsection">
         <h2>Dangerous Objects (p39)</h2>
         <button onclick="toggleVisibility(this)">Show</button>
-        <div></div>
+        <div>
+          an environment may contain objects that inflict damage or cause other
+          effects based on the actions of those present.<br />a dangerous object
+          is triggered by a specific action occurring nearby. characters must
+          succeed at a check to avoid damage.
+          <br />
+          <h4>Dangerous Objects Examples</h4>
+          <table>
+            <tr>
+              <th>Object</th>
+              <th>Triggered by</th>
+              <th>Test</th>
+              <th>Damage<a change10></a></th>
+            </tr>
+            <tr>
+              <td>Frag mine (setting own, p120)</td>
+              <td>Close proximity (within Reach)</td>
+              <td><b>AGI + Athletics</b> difficulty 2</td>
+              <td>6 Physical damage to everyone in the zone</td>
+            </tr>
+            <tr>
+              <td>Flammable gas</td>
+              <td>A spark or Energy Weapon beam (complication)</td>
+              <td><b>AGI + Athletics</b> difficulty 2</td>
+              <td>4 Persistent Energy damage</td>
+            </tr>
+            <tr>
+              <td>Grenade bouquet</td>
+              <td>Tripwire (action, entering a zone)</td>
+              <td><b>PER + Survival</b> difficulty 2</td>
+              <td>6 Physical damage to everyone in the zone</td>
+            </tr>
+            <tr>
+              <td>Shotgun trap</td>
+              <td>Pressure plate (action, entering a zone)</td>
+              <td><b>AGI + Athletics</b> difficulty 2</td>
+              <td>6 Vicious Physical damage</td>
+            </tr>
+            <tr>
+              <td>Sentry turret</td>
+              <td>Turret sensors (action, entering a zone)</td>
+              <td><b>PER + Survival</b> difficulty 3</td>
+              <td>
+                Turret acts on its initiative score, attacking the nearest
+                target each turn
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
 
@@ -834,6 +1028,10 @@
             changed from 'test' to 'check' for consistency across DND
           </li>
           <li id="change8">changed from 'travel, but no combat'</li>
+          <li id="change9">changed from rolling Combat Dice to a flat bonus</li>
+          <li id="change10">
+            changed from rolling Combat Dice to a flat penalty
+          </li>
         </ol>
       </div>
     </div>
