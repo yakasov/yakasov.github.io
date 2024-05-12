@@ -63,23 +63,332 @@
   <div class="main">
     <div class="item">
       <button id="masterToggle">Toggle All</button>
-      <h1>Core Rules</h1>
+      <h1>Attributes and Skills</h1>
       <div class="subsection">
-        <h2>Skill Checks<a change1></a> (p13, 14)</h2>
+        <h2>S.P.E.C.I.A.L Attributes</h2>
         <button onclick="toggleVisibility(this)">Show</button>
-        <div></div>
+        <div>
+          each character in Fallout is defined by seven attributes. a higher
+          ranked attribute represents greater ability.<br />S.P.E.C.I.A.L
+          attributes can't go below 4 or be increased beyond 10.<br /><br />when
+          attempting skill checks, these attributes form part of the target
+          number when rolling the dice.
+          <br />
+          <h3>Strength (STR)</h3>
+          strength measures your character's physical prowess.<br />
+          <b>what it does:</b> used to make melee attacks, increase melee
+          damage, and changes how much you can carry<br />
+          <b>buy ranks if:</b> you want to be strong and solve problems with
+          brute force<br /><br />
+          <h4>Strength rank names:</h4>
+          <table>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Lightweight</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Average Joe</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Barrel Chested</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Beach Bully</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Circus Strongman</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Doomsday Pecs</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Hercules' Bigger Cousin</td>
+            </tr>
+          </table>
+          <br />
+          <h3>Perception (PER)</h3>
+          your perceptiveness influences how easily you notice danger and how
+          aware you are of your environment.<br />
+          <b>what it does:</b> affects your initiative order, makes perception
+          checks easier and improves your ability to use Energy Weapons<br />
+          <b>buy ranks if:</b> you want to be a perceptive person and solve
+          problems by studying your surroundings <br /><br />
+          <h4>Perception rank names:</h4>
+          <table>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Unsuspecting Trout</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Wary Trout</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Alert Coyote</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Big-Eyed Tiger</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Monocled Falcon</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Sniper Hawk</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Eagle with Telescope</td>
+            </tr>
+          </table>
+          <br />
+          <h3>Endurance (END)</h3>
+          endurance is your natural toughness and influences how hardy you are
+          overall.<br />
+          <b>what it does:</b> boosts your health points, improves your ability
+          to shrug off physical dangers in the wasteland, and helps you wield
+          heavy weapons<br />
+          <b>buy ranks if:</b> you want to be hardy and resilient, and solve
+          problems by pushing through them <br /><br />
+          <h4>Endurance rank names:</h4>
+          <table>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Handle With Care</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Stain-Resistant</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Hardy</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Tough as Nails</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Flame Retardant</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Bullet Proof</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Unstoppable</td>
+            </tr>
+          </table>
+          <br />
+          <h3>Charisma (CHA)</h3>
+          your natural charisma is how much people like you, and how well you
+          can influence them in turn.<br />
+          <b>what it does:</b> improves your effectiveness at convincing others,
+          helps you barter with people and helps you find safety among others<br />
+          <b>buy ranks if:</b> you want to be diplomatic and persuasive, or you
+          wish to solve problems by talking your way out of them <br /><br />
+          <h4>Charisma rank names:</h4>
+          <table>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Peevish Librarian</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Substitute Teacher</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Cheery Salesman</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Diplomat</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Movie Star</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Casanova</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Cult Leader</td>
+            </tr>
+          </table>
+          <br />
+          <h3>Intelligence (INT)</h3>
+          your intelligence measures your smarts and how well you can apply
+          yourself in the wasteland.<br />
+          <b>what it does:</b> improves your ability to assess obstacles and
+          hazards, and helps you remember and know things by studying the world
+          around you<br />
+          <b>buy ranks if:</b> you want to be cunning and clever, and find the
+          most effective solution to your problems <br /><br />
+          <h4>Intelligence rank names:</h4>
+          <table>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Knuckle Head</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Knowledgeable</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Gifted</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Smartypants</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Know-It-All</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Genius</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Omniscient</td>
+            </tr>
+          </table>
+          <br />
+          <h3>Agility (AGL)</h3>
+          agility measures how fit and agile you are, and helps keep you quick
+          and lean.<br />
+          <b>what it does:</b> helps you to balance and control your body more
+          precisely, and improves your ability to make ranged attacks with Small
+          Guns<br />
+          <b>buy ranks if:</b> you want to be nimble, and want to solve problems
+          with accuracy and skill <br /><br />
+          <h4>Agility rank names:</h4>
+          <table>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Butterfingers</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Under Control</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Catlike</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Knife Thrower</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Knife Catcher</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Acrobatic Marvel</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Walks on Water</td>
+            </tr>
+          </table>
+          <br />
+          <h3>Luck (LCK)</h3>
+          luck describes how much fortune smiles down on you, turning fickle
+          forces in your favour.<br />
+          <b>what it does:</b> helps you come out on top when you should be at
+          the bottom, and could influence chances related to any event<br />
+          <b>buy ranks if:</b> you want to add story details, improve skill
+          check results, or re-roll dice <br /><br />
+          <h4>Luck rank names:</h4>
+          <table>
+            <tr>
+              <th>Rank</th>
+              <th>Name</th>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Spilled Salt</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Coin Flip</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Stacked Deck</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Lucky 7</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Leprechaun's Foot</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>21 Leaf Clover</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Two-Headed Coin Flip</td>
+            </tr>
+          </table>
+        </div>
       </div>
-    </div>
 
-    <div class="item">
-      <h1>Changes to normal Fallout TTRPG</h1>
-      <div class="subsection">
-        <ol>
-          <li id="change1">
-            skill checks must meet or beat their target, rather than meet or be
-            below
-          </li>
-        </ol>
+      <div class="item">
+        <h1>Changes to normal Fallout TTRPG</h1>
+        <div class="subsection">
+          <ol>
+            <li id="change1">
+              skill checks must meet or beat their target, rather than meet or
+              be below
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
   </div>
