@@ -89,3 +89,7 @@ sup {
 h3 {
   margin-bottom: 0;
 }
+
+h2, h3, h4 {
+  margin-top: 25px;
+}
