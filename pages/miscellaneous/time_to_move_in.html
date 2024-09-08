@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel=stylesheet>
+    <style>body,html{height:100%}body{font-family:Roboto,sans-serif;font-weight:400;font-size:32px;display:flex;flex-direction:column;justify-content:center;align-items:center;margin:0;line-height:0;animation:1.6s linear fade-in}.sub{font-size:20px;font-weight:lighter}@keyframes fade-in{0%{opacity:0}100%{opacity:1}}</style>
+  </head>
+  <body>
+    <p id=main></p>
+    <p id=sub class=sub>until we move in together!</p>
+  </body>
+  <script>function f(){let e=new Date,t=new Date("2024-09-21T13:00:00"),n=Math.abs(t-e),a=Math.floor(n/864e5);n-=864e5*a;let o=Math.floor(n/36e5);n-=36e5*o;let l=Math.floor(n/6e4);n-=6e4*l;let f=Math.floor(n/1e3);document.getElementById("main").innerText=`${a} days, ${o} hours, ${l} minutes and ${f} seconds`}f(),setInterval(f,1e3)</script>
+</html>
