@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Centered Layout</title>
+    <link href="./styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="text-display">
+        Upload your Mirror's Edge: Catalyst PROF_SAVE to see your dash times
+      </div>
+      <button class="button disabled" id="uploadButton" onclick="uploadFile()">
+        Upload file
+      </button>
+      <div class="selector-container">
+        <button
+          class="selector-button"
+          id="buttonB"
+          onclick="selectButton('Ben')"
+        >
+          Ben
+        </button>
+        <button
+          class="selector-button"
+          id="buttonY"
+          onclick="selectButton('Yems')"
+        >
+          Yems
+        </button>
+      </div>
+      <div class="tables-container" id="tables">
+        <table>
+          <thead>
+            <tr>
+              <th>Dash</th>
+              <th>Ben</th>
+              <th>Yems</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Birdman's Route</td>
+              <td id="ch_rrt_bm1_time_ben"></td>
+              <td id="ch_rrt_bm1_time_yems"></td>
+            </tr>
+            <tr>
+              <td>High Roller Avenue</td>
+              <td id="ch_rrt_dt1_time_ben"></td>
+              <td id="ch_rrt_dt1_time_yems"></td>
+            </tr>
+            <tr>
+              <td>Concrete Canyon</td>
+              <td id="ch_rrt_dt2_time_ben"></td>
+              <td id="ch_rrt_dt2_time_yems"></td>
+            </tr>
+            <tr>
+              <td>Nomad's Run</td>
+              <td id="ch_rrt_dt3_time_ben"></td>
+              <td id="ch_rrt_dt3_time_yems"></td>
+            </tr>
+            <tr>
+              <td>Backstreet Bluff</td>
+              <td id="ch_rrt_dt4_time_ben"></td>
+              <td id="ch_rrt_dt4_time_yems"></td>
+            </tr>
+            <tr>
+              <td>A Handy Shortcut</td>
+              <td id="ch_rrt_dt5_time_ben"></td>
+              <td id="ch_rrt_dt5_time_yems"></td>
+            </tr>
+            <tr>
+              <td>Feature Creep</td>
+              <td id="ch_rrt_dt6_time_ben"></td>
+              <td id="ch_rrt_dt6_time_yems"></td>
+            </tr>
+            <tr>
+              <td>Out in the Open</td>
+              <td id="ch_rrt_rz1_time_ben"></td>
+              <td id="ch_rrt_rz1_time_yems"></td>
+            </tr>
+            <tr>
+              <td>Old Tunnels</td>
+              <td id="ch_rrt_rz2_time_ben"></td>
+              <td id="ch_rrt_rz2_time_yems"></td>
+            </tr>
+            <tr>
+              <td>Under Construction</td>
+              <td id="ch_rrt_rz3_time_ben"></td>
+              <td id="ch_rrt_rz3_time_yems"></td>
+            </tr>
+            <tr>
+              <td>Rezoning Dash</td>
+              <td id="ch_rrt_rz4_time_ben"></td>
+              <td id="ch_rrt_rz4_time_yems"></td>
+            </tr>
+          </tbody>
+        </table>
+        <table>
+          <thead>
+            <tr>
+              <th>Dash</th>
+              <th>Ben</th>
+              <th>Yems</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>The Allcom Shuffle</td>
+              <td id="ch_rrt_anc1_time_ben"></td>
+              <td id="ch_rrt_anc1_time_yems"></td>
+            </tr>
+            <tr>
+              <td>Take Me to the Gridnode</td>
+              <td id="ch_rrt_anc2_time_ben"></td>
+              <td id="ch_rrt_anc2_time_yems"></td>
+            </tr>
+            <tr>
+              <td>Consumer Mayhem</td>
+              <td id="ch_rrt_anc3_time_ben"></td>
+              <td id="ch_rrt_anc3_time_yems"></td>
+            </tr>
+            <tr>
+              <td>Quite a View</td>
+              <td id="ch_rrt_anc4_time_ben"></td>
+              <td id="ch_rrt_anc4_time_yems"></td>
+            </tr>
+            <tr>
+              <td>Heading Home</td>
+              <td id="ch_rrt_anc5_time_ben"></td>
+              <td id="ch_rrt_anc5_time_yems"></td>
+            </tr>
+            <tr>
+              <td>Donkey in an Oven</td>
+              <td id="ch_rrt_anc6_time_ben"></td>
+              <td id="ch_rrt_anc6_time_yems"></td>
+            </tr>
+            <tr>
+              <td>Too Close to the Sun</td>
+              <td id="ch_rrt_tv1_time_ben"></td>
+              <td id="ch_rrt_tv1_time_yems"></td>
+            </tr>
+            <tr>
+              <td>Caleb's Run</td>
+              <td id="ch_rrt_tv2_time_ben"></td>
+              <td id="ch_rrt_tv2_time_yems"></td>
+            </tr>
+            <tr>
+              <td>Noah's Run</td>
+              <td id="ch_rrt_tv3_time_ben"></td>
+              <td id="ch_rrt_tv3_time_yems"></td>
+            </tr>
+            <tr>
+              <td>Don't Fall Down</td>
+              <td id="ch_rrt_tv04_time_ben"></td>
+              <td id="ch_rrt_tv04_time_yems"></td>
+            </tr>
+            <tr>
+              <td>The Scenic Route</td>
+              <td id="ch_rrt_tv05_time_ben"></td>
+              <td id="ch_rrt_tv05_time_yems"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+
+  <script src="./index.js" defer></script>
+</html>
