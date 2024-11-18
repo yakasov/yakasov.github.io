@@ -1,4 +1,4 @@
-const TOTALLY_NOT_URL_FOR_API = "http://143.47.242.222:3000/mec/";
+const TOTALLY_NOT_URL_FOR_API = "https://143.47.242.222:3000/mec/";
 
 let player = null;
 const uploadTimes = {};
