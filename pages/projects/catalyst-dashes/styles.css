@@ -105,3 +105,8 @@ table tr:nth-child(even) {
 .green {
   background-color: #6fc276;
 }
+
+.sidetext {
+  display: inline;
+  margin: 10px;
+}

@@ -131,6 +131,9 @@ async function saveTimes() {
 }
 
 function showTimes() {
+  let benCount = 0;
+  let yemsCount = 0;
+
   Object.entries(benTimes).forEach(([t, v]) => {
     document.getElementById(`${t}_ben`).innerText = formatTime(v);
   });
@@ -144,12 +147,14 @@ function showTimes() {
 
   Object.keys(benTimes).forEach((d) => {
     if (benTimes[d] > yemsTimes[d]) {
+      yemsCount++;
       if (document.getElementById(`${d}_ben`).classList.contains("green")) {
         document.getElementById(`${d}_ben`).classList.remove("green");
         document.getElementById(`${d}_yems`).innerText += "*";
       }
       document.getElementById(`${d}_yems`).classList.add("green");
     } else if (benTimes[d] < yemsTimes[d]) {
+      benCount++;
       if (document.getElementById(`${d}_yems`).classList.contains("green")) {
         document.getElementById(`${d}_yems`).classList.remove("green");
         document.getElementById(`${d}_ben`).innerText += "*";
@@ -157,6 +162,9 @@ function showTimes() {
       document.getElementById(`${d}_ben`).classList.add("green");
     }
   });
+
+  document.getElementById("ben_count").innerText = benCount;
+  document.getElementById("yems_count").innerText = yemsCount;
 }
 
 async function loadData() {
