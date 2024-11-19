@@ -76,6 +76,7 @@ async function processFile(buffer) {
   });
 
   await saveTimes();
+  await getTimes();
   showTimes();
 }
 
@@ -143,11 +144,17 @@ function showTimes() {
 
   Object.keys(benTimes).forEach((d) => {
     if (benTimes[d] > yemsTimes[d]) {
-      document.getElementById(`${d}_ben`).classList.remove("green");
+      if (document.getElementById(`${d}_ben`).classList.includes("green")) {
+        document.getElementById(`${d}_ben`).classList.remove("green");
+        document.getElementById(`${d}_yems`).innerText += "*";
+      }
       document.getElementById(`${d}_yems`).classList.add("green");
     } else if (benTimes[d] < yemsTimes[d]) {
+      if (document.getElementById(`${d}_yems`).classList.includes("green")) {
+        document.getElementById(`${d}_yems`).classList.remove("green");
+        document.getElementById(`${d}_ben`).innerText += "*";
+      }
       document.getElementById(`${d}_ben`).classList.add("green");
-      document.getElementById(`${d}_yems`).classList.remove("green");
     }
   });
 }
