@@ -1,0 +1,138 @@
+:root {
+  --lightest-grey: #9b9ca3;
+  --light-grey: #adaeb4;
+  --grey: #323339;
+  --grey2: #3c3d45;
+  --dark-grey: #2c2d32;
+  --white: #ececed;
+}
+
+.g {
+  color: var(--grey);
+}
+
+.dg {
+  color: var(--dark-grey);
+}
+
+.lg {
+  color: var(--light-grey);
+}
+
+.lsg {
+  color: var(--lightest-grey);
+}
+
+body {
+  background-color: var(--grey);
+  color: var(--white);
+  font-family: "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  text-align: left;
+
+  min-height: 96vh;
+  margin: 2vh;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#header {
+  min-height: 10vh;
+  min-width: 96vh;
+  padding: 2vh;
+
+  color: var(--white);
+  font-size: 4em;
+  text-align: center;
+
+  .subtitle {
+    color: var(--light-grey);
+    font-size: 0.33em;
+    font-style: italic;
+
+    margin: 0;
+  }
+}
+
+#sidebar {
+  min-width: 20vh;
+  min-height: 80vh;
+  padding: 1vh;
+
+  background-color: var(--dark-grey);
+  border-radius: 10px;
+
+  ul {
+    padding: 0;
+
+    li {
+      background-color: var(--grey);
+      border-radius: 5px;
+      position: relative;
+
+      cursor: pointer;
+      list-style: none;
+      margin: 1em 0;
+
+      transition: background-color 0.2s ease;
+
+      &.expanded > .sublist {
+        max-height: fit-content;
+      }
+
+      span {
+        box-sizing: border-box;
+        border-radius: 5px;
+
+        display: block;
+        min-height: 100%;
+        min-width: 100%;
+        padding: 1em;
+
+        &:hover {
+          background-color: var(--grey2);
+        }
+      }
+    }
+
+    .sublist {
+      position: absolute;
+      top: 100%;
+
+      max-height: 0;
+      margin-left: 2em;
+      overflow: hidden;
+      width: calc(100% - 2em);
+
+      transition: max-height 0.2s ease;
+    }
+  }
+}
+
+#main {
+  border: 2px solid var(--dark-grey);
+  border-radius: 10px;
+  margin-left: 1vh;
+
+  padding: 2%;
+  width: 100%;
+
+  .hidden {
+    display: none;
+  }
+
+  h3 {
+    font-size: 2em;
+    text-align: center;
+  }
+}
