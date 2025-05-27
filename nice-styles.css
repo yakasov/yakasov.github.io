@@ -1,15 +1,19 @@
 :root {
-  --lightest-grey: #9b9ca3;
-  --light-grey: #adaeb4;
-  --grey: #323339;
-  --grey2: #3c3d45;
+  --lightest: #9b9ca3;
+  --light: #adaeb4;
+  --base-colour-1: #323339;
+  --base-colour-2: #3c3d45;
   --dark-grey: #2c2d32;
   --white: #ececed;
   --accent: #7ec4cf;
 }
 
 body {
-  background: linear-gradient(120deg, var(--grey) 70%, var(--grey2) 100%);
+  background: linear-gradient(
+    120deg,
+    var(--base-colour-1) 70%,
+    var(--base-colour-2) 100%
+  );
   color: var(--white);
   font-family: "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji";
@@ -36,13 +40,13 @@ body {
 
 footer {
   bottom: 0;
-  
+
   margin-top: auto;
   padding: 1em 0;
   text-align: center;
 
   a {
-    color: var(--light-grey);
+    color: var(--light);
     font-style: italic;
     text-decoration: none;
   }
@@ -54,13 +58,17 @@ footer {
   padding: 2vh;
   font-size: 3.5em;
   text-align: center;
-  background: linear-gradient(90deg, var(--grey2) 60%, var(--dark-grey) 100%);
+  background: linear-gradient(
+    90deg,
+    var(--base-colour-2) 60%,
+    var(--dark-grey) 100%
+  );
   border-radius: 10px;
   box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
   margin-bottom: 2vh;
 
   .subtitle {
-    color: var(--light-grey);
+    color: var(--light);
     font-size: 0.33em;
     font-style: italic;
     margin: 0;
@@ -72,7 +80,11 @@ footer {
   min-width: 20vh;
   min-height: 70vh;
   padding: 1.5vh 1vh;
-  background: linear-gradient(120deg, var(--dark-grey) 80%, var(--grey2) 100%);
+  background: linear-gradient(
+    120deg,
+    var(--dark-grey) 80%,
+    var(--base-colour-2) 100%
+  );
   border-radius: 10px;
   box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
 
@@ -81,7 +93,7 @@ footer {
     margin: 0;
 
     li {
-      background: var(--grey);
+      background: var(--base-colour-1);
       border-radius: 5px;
       position: relative;
       cursor: pointer;
@@ -95,7 +107,7 @@ footer {
 
       &:hover,
       &:focus-within {
-        background: var(--grey2);
+        background: var(--base-colour-2);
         color: var(--accent);
         box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
         border-color: var(--accent);
@@ -110,7 +122,11 @@ footer {
   margin-left: 1vh;
   padding: 2.5em 2em;
   width: 100%;
-  background: linear-gradient(120deg, var(--grey2) 60%, var(--dark-grey) 100%);
+  background: linear-gradient(
+    120deg,
+    var(--base-colour-2) 60%,
+    var(--dark-grey) 100%
+  );
   box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.2s;
 
@@ -140,14 +156,14 @@ footer {
     h2 {
       font-size: 1.1em;
       margin: 0 0 1em 0;
-      color: var(--light-grey);
+      color: var(--light);
     }
 
     p {
       font-size: 1.1em;
       line-height: 1.6;
       margin-bottom: 1.2em;
-      color: var(--lightest-grey);
+      color: var(--lightest);
     }
   }
 
@@ -179,7 +195,7 @@ footer {
       a {
         padding: 0.6em 1.3em;
         border-radius: 5px;
-        background: var(--light-grey);
+        background: var(--light);
         color: var(--dark-grey);
         font-weight: 600;
         text-decoration: none;
@@ -189,19 +205,19 @@ footer {
         &:hover,
         &:focus {
           background: var(--white);
-          color: var(--grey);
+          color: var(--base-colour-1);
           box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
         }
 
         &.secondary {
           background: transparent;
-          color: var(--light-grey);
-          border: 2px solid var(--light-grey);
+          color: var(--light);
+          border: 2px solid var(--light);
 
           &:hover,
           &:focus {
             background: var(--white);
-            color: var(--grey);
+            color: var(--base-colour-1);
             border: 2px solid var(--white);
           }
         }
