@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:url" content="https://yakasov.github.io/" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var links = document.querySelectorAll("a");
+
+      function hasChangeAttribute(element) {
+        for (let attr of element.attributes) {
+          if (attr.name.startsWith("change")) {
+            return attr.name;
+          }
+        }
+        return false;
+      }
+
+      links.forEach(function (link) {
+        var changeAttrName = hasChangeAttribute(link);
+        if (changeAttrName) {
+          var num = changeAttrName.replace("change", "");
+          link.className = "link";
+          link.href = "#" + changeAttrName;
+          link.innerHTML = `<sup>${num}</sup>`;
+          link.removeAttribute(changeAttrName);
+        }
+      });
+
+      document
+        .getElementById("masterToggle")
+        .addEventListener("click", function () {
+          var allButtons = document.querySelectorAll(".subsection button");
+          allButtons.forEach(function (button) {
+            toggleVisibility(button);
+          });
+        });
+
+      // dumb way to show all sections from start
+      document.getElementById("masterToggle").click();
+    });
+
+    function toggleVisibility(button) {
+      var content = button.nextElementSibling;
+      if (content.style.display === "none" || content.style.display === "") {
+        content.style.display = "block";
+        button.textContent = "Hide";
+      } else {
+        content.style.display = "none";
+        button.textContent = "Show";
+      }
+    }
+  </script>
+</html>
+
+<body>
+  <p class="title">Fallout TTRPG Rules (some adjustments by Yakasov)</p>
+  <div class="main">
+    <div class="item">
+      <button id="masterToggle">Toggle All</button>
+      <h1>Core Rules</h1>
+      <div class="subsection">
+        <h2>Skill Checks<a change7></a> (p13, 14)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          <ol>
+            <li>
+              choose attribute + skill.
+              <b>target number:</b> attribute + skill
+            </li>
+            <li>GM sets difficulty (1 - 5)</li>
+            <li>roll dice => base 2d20 + 1d20 per AP</li>
+            <li>
+              check for successes:<a change1></a>
+              <ul>
+                <li>a 20 is a crit success<a change2></a></li>
+                <li>
+                  a tagged skill results in a crit success if roll is above 20 -
+                  skill<a change3></a><br />
+                  <i>eg Sneak 3 means crit above 17 (20 - 3)</i>
+                </li>
+                <li>a 1 generates a <i>complication</i></li>
+                <li>if the number of successes > target, the check passes</li>
+                <li>each bonus success becomes an AP</li>
+                <li>you can improve the outcome by expending AP (p15)</li>
+              </ul>
+              a difficulty 0 is an automatic success, but generates no AP.
+              <br />
+              you can choose to attempt the check to gain AP, but also risk
+              complications<br /><br />
+              other players can provide assistance in most situations (GM
+              discretion). only 1d20 can be rolled.
+            </li>
+          </ol>
+          <h3>Opposed Checks<a change7></a> (p16)</h3>
+          an opposed check occurs between a GM and a player. the GM buys bonus
+          dice with AP first, then the player.<br />the amount of successes the
+          GM rolls sets the difficulty for the player. the player then can
+          choose to spend AP to increase their dice.<br /><br />any excess
+          successes award AP on either side.
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Luck (p20)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          luck is <i>similar</i> (but not the same) to Hero Points. you gain
+          Luck points equal to your Luck value at the start of each quest.<br /><br />
+          Luck can be used for several things, such as
+          <ul>
+            <li>
+              <b>luck of the draw:</b> learn a helpful detail or fact about the
+              situation you're in. this is all up to GM discretion.
+            </li>
+            <li>
+              <b>stacked deck:</b> before attempting a skill check, LCK can be
+              used instead of the default attribute.
+            </li>
+            <li>
+              <b>lucky timing:</b> at the start of any round in combat, you may
+              interrupt the normal initiative order and take your turn early.
+            </li>
+            <li>
+              <b>miss fortune:</b> you can re-roll one (or more) dice. you may
+              re-roll one d20, or up to 3 Combat Dice, per point. <br />
+              you cannot re-roll an already re-rolled die, and you must accept
+              the new roll.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <h1>Combat (p24)</h1>
+      <div class="subsection">
+        <h2>Actions (p25, 26)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          per turn you can attempt one Minor and one Major action.<br />
+          a <b>Minor action</b> is something quick such as aiming or drawing a
+          weapon. <br />
+          a <b>Major action</b> is something that requires more concentration,
+          such as attacking, defending, hacking a computer or locking a pick.
+          <br />
+          <h3>Minor Actions (p25)</h3>
+          <ul>
+            <li>
+              <b>aim:</b> re-roll 1d20 on the first attack roll you make this
+              turn
+            </li>
+            <li>
+              <b>draw item:</b> draw an item you are carrying, or pick up
+              something within reach. you can also put something away as part of
+              this action.
+            </li>
+            <li>
+              <b>interact:</b> interact with your equipment or the environment
+            </li>
+            <li>
+              <b>move:</b> move up to one zone, to any position within Medium
+              range. you use your movement to stand up from prone.
+            </li>
+            <li>
+              <b>take chem:</b> administer a chem to yourself or someone willing
+              within reach
+            </li>
+          </ul>
+          <br />
+          <h3>Major Actions (p26)</h3>
+          <ul>
+            <li>
+              <b>assist:</b> assist another character with their check. you can
+              pass your turn to wait for their turn to provide assistance
+            </li>
+            <li><b>attack:</b> make a melee or ranged attack</li>
+            <li>
+              <b>check:</b> perform a skill check for an action not covered by
+              other actions (GM discretion)
+            </li>
+            <li>
+              <b>command an npc:</b> if you have an allied NPC, you can choose a
+              single major action for them to take.<br />if the action requires
+              a check, you automatically assist with the following rules:
+              <ul>
+                <li>if the NPC is a person: <b>CHA + Speech</b></li>
+                <li>if the NPC is an animal: <b>CHA + Survival</b></li>
+                <li>if the NPC is a robot: <b>INT + Science</b></li>
+              </ul>
+            </li>
+            <li>
+              <b>defend:</b> make an <b>AGI + Athletics</b> check with a
+              difficulty equal to your Defense. on a success, add 1 to
+              Defense.<br />
+              you can spend 2 AP to add an additional 1 to your Defense.
+            </li>
+            <li>
+              <b>first aid:</b> make an <b>INT + Medicine</b> check with a
+              difficulty equal to the number of injuries you are trying to
+              treat. add 1 if performing first aid on yourself.<br />
+              on a success, you can:
+              <ul>
+                <li>heal HP equal to your <b>Medicine</b> rating</li>
+                <li>treat one injury the patient is suffering from</li>
+                <li>stabilize a dying patient</li>
+              </ul>
+            </li>
+            <li><b>pass:</b> do nothing</li>
+            <li>
+              <b>rally:</b> make an <b>END + Survival</b> check with a
+              difficulty of 0, and save any generated AP
+            </li>
+            <li>
+              <b>ready:</b> describe a situation you expect to occur, and choose
+              an action to execute if it does. if it occurs, you can act as soon
+              as it does.
+            </li>
+            <li>
+              <b>sprint:</b> you can move up to two zones, to anywhere within
+              Long range
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Attacking (p27)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          <ol>
+            <li>
+              <b>choose weapon and target:</b> target an enemy you can see with
+              a weapon you have.<br />you can choose to target a specific
+              location on the enemy. this increases the attack difficulty by 1.
+            </li>
+            <li>
+              <b>attempt a check:</b>
+              the difficulty for any check is equal to your target's Defense.
+              any ranged attack is also modified by range to the target.
+              <ul class="no-margin">
+                <li>
+                  <b>melee weapons:</b> roll a <b>STR + Melee Weapons</b> check
+                </li>
+                <li>
+                  <b>ranged weapons:</b> the check depends on the weapon used:
+                  <ul>
+                    <li><b>small guns:</b> roll <b>AGI + Small Guns</b></li>
+                    <li><b>big guns:</b> roll <b>END + Big Guns</b></li>
+                    <li>
+                      <b>energy weapons:</b> roll <b>PER + Energy Weapons</b>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <b>thrown weapons:</b> roll a <b>PER + Explosives</b>
+                  <i>or</i> an <b>AGI + Throwing</b> check
+                </li>
+                <li><b>unarmed:</b> roll a <b>STR + Unarmed</b> check</li>
+              </ul>
+              if you are within melee range of an enemy, the difficulty of the
+              ranged check is increased by 2 (p28)
+            </li>
+            <li>
+              <b>determine hit location:</b> if a specific hit location has not
+              already been chosen during the attack check, roll a hit location
+              die (or 1d20)
+            </li>
+            <li>
+              <b>inflict damage:</b> roll the number of Combat Dice listed by
+              the weapon's damage rating, plus any bonuses from derived
+              statistics, AP or ammo spent.<br /><br />damage is reduced by the
+              target's DR against the attack's damaged type at the location hit.
+            </li>
+          </ol>
+          <br />
+          <h3>Range (p28)</h3>
+          ranged and thrown weapons can be used against any target you can see,
+          but lose effectiveness if not used within their ideal range.<br />the
+          ideal ranges are:
+          <ul>
+            <li>
+              <b>Close (C):</b> most effective against targets within the same
+              zone
+            </li>
+            <li>
+              <b>Medium (M):</b> most effective against targets in an adjacent
+              zone
+            </li>
+            <li>
+              <b>Long (L):</b> most effective against targets two zones away
+            </li>
+            <li>
+              <b>Extreme (X):</b> most effective against targets three or more
+              zones away
+            </li>
+          </ul>
+          the difficulty of a ranged attack increases by 1 for each range band
+          outside of the weapon's ideal range
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Damage Types (p30)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          there are four types of damage:
+          <ul>
+            <li>
+              <b>Physical:</b> unarmed attacks, blunt force, slashing and
+              stabbing, ballistics
+            </li>
+            <li><b>Energy:</b> laser, plasma, and flame weapons</li>
+            <li><b>Radiation:</b> exposure to RADs, or nuclear weaponry</li>
+            <li>
+              <b>Poison:</b> toxins, chemicals, and creature stings and barbs
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Damage Effects (p30)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          <ul>
+            <li>
+              <b>burst:</b>
+              the attack hits one additional target within Close range of the
+              primary target for each Effect rolled.<br />each additional target
+              spends 1 additional unit of ammo
+            </li>
+            <li>
+              <b>breaking:</b> for each Effect rolled, reduce a target's cover
+              by 1 permanently. <br />
+              if not in cover, reduce the DR of the location struck by 1
+              dependent on the damage type
+            </li>
+            <li>
+              <b>persistent:</b> if one or more Effects are rolled, the target
+              suffers the weapon's damage again at the end of &#119909; turns
+              equal to the number of Effects rolled.<br />the target can spend a
+              major action to attempt to stop the persistent damage early with a
+              difficulty equal to the number of Effects rolled and the check
+              being <i>attribute + skill</i> (GM discretion)
+            </li>
+            <li>
+              <b>piercing &#119909;:</b> ignore &#119909; points of the target's
+              DR for each Effect rolled (where &#119909; is the rating of the
+              Effect)
+            </li>
+            <li>
+              <b>radioactive:</b> for each Effect rolled, the target suffers 1
+              point of Radiation damage
+            </li>
+            <li>
+              <b>spread:</b> for each Effect rolled, your attack inflicts an
+              additional hit at a random location on the target with half damage
+              (rounded down)
+            </li>
+            <li>
+              <b>stun:</b> if one or more Effects are rolled, the target cannot
+              take any actions on their next turn. they can still spend AP to
+              take additional actions
+            </li>
+            <li>
+              <b>vicious:</b> the attacks inflict 1 additional damage for each
+              Effect rolled
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Movement</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          blah
+          <h3>Prone (p25)</h3>
+          when prone, you crawl - movement becomes a Major action rather than a
+          Minor action.<br /><br />enemies at Medium range or further add +1 to
+          difficulty of attacks against you;<br />however, enemies at Close
+          range reduce the difficulty of attacks by 1.<br /><br />whilst prone,
+          you can re-roll any cover dice you have
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Initiative (p24)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          your <b>player character</b> initiative is PER + AGL.
+          <b>creature NPC</b> initiative is Body + Mind.
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <h1>Damage and Injury (p32)</h1>
+      <div class="subsection">
+        <h2>Critical Hits and Injuries (p32)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          a <b>critical hit</b> occurs when a character suffers
+          <i>five or more damage in one hit</i> (after reductions). this causes
+          a penalty dependent on location hit:
+          <ul>
+            <li>
+              <b>arm:</b> your arm is broken - you drop any object held in that
+              hand, and you cannot perform any actions using that arm.
+            </li>
+            <li>
+              <b>leg:</b> your leg is broken - you immediately fall prone, and
+              can no longer Sprint. any Move action is now a Major action.
+            </li>
+            <li>
+              <b>torso:</b> you begin bleeding heavily. at the end of each
+              subsequent turn, you suffer 2 Physical damage, ignoring all DR
+            </li>
+            <li>
+              <b>head:</b> you are dazed and stunned for your next turn, and
+              suffer +2 difficulty to all vision-based checks
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Dying (p32)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          when reduced to 0hp, the character suffers an injury to the location
+          struck, then fall prone and start <b>dying.</b><br />if they suffer a
+          critical hit when reduced to 0hp, they suffer three injuries.<br /><br />whilst
+          dying, they are unconscious, cannot recover HP from the
+          <b>First Aid</b> action, and cannot take any actions.<br />at the
+          start of each turn, they must succeed an <b>END + Survival</b> check,
+          with a difficulty equal to the number of injures they have, and a
+          complication range of 19-20.<br /><br />if this check is passed, they
+          survive that turn; if not, they die.<br />if they suffer any damage
+          whilst dying, they gain another injury.
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Healing (p33)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          outside of the <b>First Aid</b> major action, there are other elements
+          of healing: <br /><br />
+          <h3>Stabilizing (p34)</h3>
+          after succeeding a <b>First Aid</b> check, a patient can be stabilized
+          to 1hp. this also prevents them from dying, meaning they no longer
+          have to make checks to survive. the character remains unconscious.
+          <br /><br />
+          if <i>Radiation damage</i> has reduced their maximum hit points to 0,
+          they cannot be stabilized until they have at least 1 max HP.<br /><br />
+          AP can be spent to heal additional health points when stabilized at a
+          rate of 1 AP to 1 bonus HP. <br />1 AP can also be spent to wake them
+          from unconsciousness. <br /><br />
+          <h3>Regaining Health (p34)</h3>
+          passing a <b>First Aid</b> check will allow you to heal a number of
+          hit points equal to your rank in Medicine.<br />you can heal an
+          additional HP per AP spent.<br /><br />you can only heal the hit
+          points of a stable character. <br />
+          <br />
+          <h3>Treating an Injury (p34)</h3>
+          succeeding a <b>First Aid</b> check allows a patient to ignore the
+          penalties of their injury - it is only patched up in this manner and
+          not permanently healed.<br /><br />when a character suffers damage to
+          a location of a treated injury, roll a d3<a change6></a> - if you roll
+          a 1, the damage re-opens the wound and the character is injured again.
+          <br /><br />
+          <h3>Using Stimpaks (p34, 169)</h3>
+          with the <b>Take Chem</b> minor action, the stimpak is injected and
+          recovers 4 HP or treats 1 injury. this can stabilize a patient as
+          well.<br /><br />with the <b>First Aid</b> major action, you may
+          administer a stimpak as part of the action. the target regains 4 HP,
+          and any spent AP heals twice as much HP. <br /><br />
+          <h3>Healing Robots (p34)</h3>
+          robots and other machines cannot recover from injuries naturally;
+          however, robot repair kits can be used in place of stimpaks.
+          <br /><br />
+          attempting <b>First Aid</b> on a robot, a suit of power armour, or
+          other large machines requires an <b>INT + Repair</b> check with a
+          difficulty of 2.<br />this increases by 1 for each injury the machine
+          has suffered.<br />passing the check restores HP equal to your
+          <b>Repair</b> rating, treats an injury, or stabilizes a dying
+          machine.<br /><br />machines cannot use chems or heal through eating,
+          drinking or resting. outside of combat, an hour's work on a damaged
+          machine restores HP equal to twice the <b>Repair</b> rating used.
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Long-Term Recovery (p35)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          there are three key ways to recover outside of combat:<br /><br />
+          <h3>Rest (p35)</h3>
+          resting for at least 6 hours regains all lost HP; resting for 8 in an
+          owned bed boosts max HP by 2.
+          <br /><br />
+          when you sleep, injuries can be healed with an
+          <b>END + Survival</b> check with a difficulty of 1. the complication
+          range of this check increases by 1 for each untreated injury.<br />if
+          the check succeeds, one injury can be recovered, with an additional
+          injury for every 2 AP spent. <br /><br />
+          <h4>Injury Recovery Difficulty</h4>
+          <table>
+            <tr>
+              <th>Activity</th>
+              <th>Difficulty</th>
+            </tr>
+            <tr>
+              <td>Restful (no strenuous activity all day)</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Light (a small amount of travel or similar)</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Moderate (travel or combat, but not both)<a change8></a></td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>Heavy (travel and combat)</td>
+              <td>4</td>
+            </tr>
+          </table>
+          <br />
+          <h3>Food & Drink (p35, 149)</h3>
+          food and drink restores the HP listed in their description. some
+          consumables cannot be used during combat, especially if consumed
+          raw.<br />
+          roll a d3<a change6></a> when consuming irradiated food or drink; on a
+          1, you suffer 1 Radiation damage. <br /><br />
+          <h3>Medical Attention (p35, 194)</h3>
+          characters may require long-term medical care if they've been injured,
+          poisoned, or are suffering from a disease.<br />a single character can
+          provide medical attention for a number of patients equal to their
+          <b>Medicine</b> rating. <br /><br />for injuries, each day of rest a
+          patient receives allows you to assist their
+          <b>END + Survival</b> check at the end of the day to heal their
+          injuries using your own <b>INT + Medicine.</b><br /><br />
+          for poisons and diseases, you may still assist the check. if the
+          patient spent the entire day resting, they reduce the difficulty of
+          this check by 1.
+          <br /><br />
+          <h3>Recovering from Rads (p35)</h3>
+          Radiation damage can <i>only</i> be removed by administering RadAway
+          or any other chems that remove Radiation damage. <br />
+          radiation damage is removed before any healing is applied if both are
+          applied in the same turn.
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <h1>Environment (p36)</h1>
+      <div class="subsection">
+        <h2>Cover (p38)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          Cover provides additional DR against Physical and Energy-based
+          attacks. some objects in the environment will provide DR as a number
+          of Combat Dice.<br />when attacked by these attacks whilst behind
+          cover, add the bonus in the Cover Values table to your DR for that
+          attack.<a change9></a><br /><br />you cannot be targeted if you are
+          fully obscured by cover.
+          <br />
+          <h4>Cover Values</h4>
+          <table>
+            <tr>
+              <th>Cover Type</th>
+              <th>DR Bonus<a change9></a></th>
+            </tr>
+            <tr>
+              <td>Foliage, Wood</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Rubble, Brick Walls, Metal Fencing</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Concrete Walls, Steel Barricades</td>
+              <td>3</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Difficult Terrain and Obstacles (p38)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          <b>difficult terrain</b> describes any ground that requires more
+          effort to cross.<br /><b>obstacles</b> exists <i>between</i> zones,
+          and slow progress when moving across these zones.<br />to cross
+          difficult terrain, you must spend AP; if you do not have any AP, you
+          must generate some.<br /><br />the easiest way to do this is to Rally
+          and succeed at a difficulty 0 <b>STR + Athletics</b> check.
+          <br />
+          <h4>Difficult Terrain and Obstacle Examples</h4>
+          <table>
+            <tr>
+              <th>Terrain</th>
+              <th>AP Cost</th>
+            </tr>
+            <tr>
+              <td>Thick mud, loose sand, up stairs</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Swamp, unstable rubble</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Steep slope, fast-flowing water</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <th>Obstacle</th>
+              <th></th>
+            </tr>
+            <tr>
+              <td>Up to waist-height/short jump</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Up to chest-height/short jump with run-up</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>Taller than you/long jump</td>
+              <td>3</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Environment Conditions (p38)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          some conditions affect multiple zones or even the whole environment.
+          some examples are:
+          <ul>
+            <li>
+              <b>poor lighting/darkness:</b> <b>PER</b> checks that rely on
+              vision and all ranged attacks increase in difficulty (dependent on
+              the light level)
+            </li>
+            <li>
+              <b>mist and fog:</b> <b>PER</b> checks that rely on vision and all
+              ranged attacks increase in difficulty by 1 when the target is at
+              Medium range or further
+            </li>
+            <li>
+              <b>rain:</b> ranged attacks with <b>Energy Weapons</b> and
+              <b>Survival</b> checks increase in difficulty (dependent on how
+              heavy the rain is)
+            </li>
+            <li>
+              <b>radstorm:</b> any creature not in shelter suffers 2<a
+                change10
+              ></a>
+              Radiation damage at the start of each turn
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Hazards (p39)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          hazards are parts of the environment that inflict damage
+          <br />
+          <h4>Hazard Examples</h4>
+          <table>
+            <tr>
+              <th>Hazard</th>
+              <th>Damage<a change10></a></th>
+            </tr>
+            <tr>
+              <td>Falling debris</td>
+              <td>3 Physical damage</td>
+            </tr>
+            <tr>
+              <td>Falling</td>
+              <td>3 Stun Physical damage per zone fallen</td>
+            </tr>
+            <tr>
+              <td>Open flame</td>
+              <td>2 Energy damage</td>
+            </tr>
+            <tr>
+              <td>Raging fire</td>
+              <td>3 Persistent Energy damage</td>
+            </tr>
+            <tr>
+              <td>Electrical discharge</td>
+              <td>3 Stun Energy damage</td>
+            </tr>
+            <tr>
+              <td>Toxic chemical (spill)</td>
+              <td>2 Poison damage</td>
+            </tr>
+            <tr>
+              <td>Toxic chemicals (immersed)</td>
+              <td>3 Persistent Poison damage</td>
+            </tr>
+            <tr>
+              <td>Irradiated water</td>
+              <td>2 Persistent Radiation damage</td>
+            </tr>
+            <tr>
+              <td>Irradiated air</td>
+              <td>2 Piercing Radiation damage</td>
+            </tr>
+            <tr>
+              <td>Close proximity to radioactive waste or materials</td>
+              <td>5 Radiation damage</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Dangerous Objects (p39)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          an environment may contain objects that inflict damage or cause other
+          effects based on the actions of those present.<br />a dangerous object
+          is triggered by a specific action occurring nearby. characters must
+          succeed at a check to avoid damage.
+          <br />
+          <h4>Dangerous Objects Examples</h4>
+          <table>
+            <tr>
+              <th>Object</th>
+              <th>Triggered by</th>
+              <th>Test</th>
+              <th>Damage<a change10></a></th>
+            </tr>
+            <tr>
+              <td>Frag mine (setting own, p120)</td>
+              <td>Close proximity (within reach)</td>
+              <td><b>AGI + Athletics</b> difficulty 2</td>
+              <td>6 Physical damage to everyone in the zone</td>
+            </tr>
+            <tr>
+              <td>Flammable gas</td>
+              <td>A spark or Energy Weapon beam (complication)</td>
+              <td><b>AGI + Athletics</b> difficulty 2</td>
+              <td>4 Persistent Energy damage</td>
+            </tr>
+            <tr>
+              <td>Grenade bouquet</td>
+              <td>Tripwire (action, entering a zone)</td>
+              <td><b>PER + Survival</b> difficulty 2</td>
+              <td>6 Physical damage to everyone in the zone</td>
+            </tr>
+            <tr>
+              <td>Shotgun trap</td>
+              <td>Pressure plate (action, entering a zone)</td>
+              <td><b>AGI + Athletics</b> difficulty 2</td>
+              <td>6 Vicious Physical damage</td>
+            </tr>
+            <tr>
+              <td>Sentry turret</td>
+              <td>Turret sensors (action, entering a zone)</td>
+              <td><b>PER + Survival</b> difficulty 3</td>
+              <td>
+                Turret acts on its initiative score, attacking the nearest
+                target each turn
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <h1>Fallout-specific Rules</h1>
+      <div class="subsection">
+        <h2>Complications (p15)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          rolling a 1 can result in a complication<a change4></a>. these can
+          affect things immediately or impact future checks.<br />complications
+          do not stop checks from succeeding.<br /><br />
+          difficult actions can result in complications at higher rolls (p17).
+          for example, a difficulty 3 roll could create complications at a roll
+          of 3 or below<a change4></a>.<br /><br />
+          in some cases, the GM may allow a success even when the success goal
+          was not hit. <br />
+          this can be done at the cost of complications being given as a trade
+          off.
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Action Points (p18)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          AP (Action Points) can be generated by getting excess successes.
+          <br />
+          they can be used to take extra actions, improve outcomes, and more.
+          <ul>
+            <li>
+              <b>buy d20s (1 - 6 AP):</b> buy bonus d20s for a test before any
+              dice are rolled, but after the difficulty has been set for the
+              check. each bonus die costs more AP.<br /><i
+                >2d20: 0 AP, 3d20: +1 AP, 4d20: +3 AP, 5d20: +6 AP</i
+              >
+            </li>
+            <li>
+              <b>obtain information (1 AP):</b> the GM must answer truthfully -
+              but not necessarily completely.
+            </li>
+            <li>
+              <b>reduce time (2 AP):</b> if a check takes time, 2 AP can be
+              expended to halve the time to complete.
+            </li>
+          </ul>
+          <br />
+          additionally, in combat (p26):
+          <ul>
+            <li>
+              <b>take additional minor action (1 AP):</b> you can only take 2
+              minor actions in a single round.
+            </li>
+            <li>
+              <b>take additional major action (2 AP):</b> you can only take 2
+              major actions in a single round. <br />
+              any skill check has its difficulty raised by +1.
+            </li>
+            <li>
+              <b>add extra damage (1 - 3 AP):</b> on a successful melee or
+              thrown weapon attack, you can spend AP to add an additional Combat
+              Dice.
+            </li>
+          </ul>
+          <br />
+          you can pool and save up to 6 AP as a group. <br />
+          each quest gives the GM 1 AP per player.
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Hit Locations (p28)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          there are 6 body parts that can be hit:
+          <table>
+            <tr>
+              <th>D20 Roll</th>
+              <th>Humanoid</th>
+              <th>Quadruped</th>
+              <th>Flying Insect</th>
+            </tr>
+            <tr>
+              <td>1 - 2</td>
+              <td>Head</td>
+              <td>Head</td>
+              <td>Head</td>
+            </tr>
+            <tr>
+              <td>3 - 8</td>
+              <td>Torso</td>
+              <td>Torso</td>
+              <td>Torso</td>
+            </tr>
+            <tr>
+              <td>9 - 11</td>
+              <td>Left Arm</td>
+              <td>Left Front Leg</td>
+              <td>Left Wing (as Leg)</td>
+            </tr>
+            <tr>
+              <td>12 - 14</td>
+              <td>Right Arm</td>
+              <td>Right Front Leg</td>
+              <td>Right Wing (as Leg)</td>
+            </tr>
+            <tr>
+              <td>15 - 17</td>
+              <td>Left Leg</td>
+              <td>Left Hind Leg</td>
+              <td>Legs</td>
+            </tr>
+            <tr>
+              <td>18 - 20</td>
+              <td>Right Leg</td>
+              <td>Right Hind Leg</td>
+              <td>Legs</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Combat Dice (p29)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          the amount of Combat Dice you roll is equal to the
+          <i>damage rating</i> of your weapon. some rolls have different effects
+          <table>
+            <tr>
+              <th>D6 Roll</th>
+              <th>Combat Dice Result&nbsp;&nbsp;</th>
+              <th>Damage and Effects</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>
+                <img src="/res/fallout/d1.webp" />
+              </td>
+              <td>1 damage</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>
+                <img src="/res/fallout/d2.webp" />
+              </td>
+              <td>2 damage</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>
+                <img src="/res/fallout/d3.webp" />
+              </td>
+              <td>Nothing</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>
+                <img src="/res/fallout/d3.webp" />
+              </td>
+              <td>Nothing</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>
+                <img src="/res/fallout/d6.webp" />
+              </td>
+              <td>1 damage + damage effects trigger</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>
+                <img src="/res/fallout/d6.webp" />
+              </td>
+              <td>2 damage + damage effects trigger<a change5></a></td>
+            </tr>
+          </table>
+          <br />
+          <h3>Increasing Damage</h3>
+          <b>for melee, unarmed and thrown weapons,</b> up to 3 Combat Dice can
+          be bought using AP.<br /><b>for ranged weapons,</b> each unit of
+          ammunition can be spent to add 1 Combat Die. ammo can be spent up to
+          the weapon's fire rate<br />
+          <i
+            >eg a 10mm pistol with a fire rate of 2 can spend 2 additional
+            bullets</i
+          >
+        </div>
+      </div>
+
+      <br /><br />
+      <div class="subsection">
+        <h2>Radiation Damage (p31)</h2>
+        <button onclick="toggleVisibility(this)">Show</button>
+        <div>
+          Radiation damage is applied after normal damage, and reduces the
+          character's <b>maximum health points.</b><br />
+          if Radiation damage would affect the whole body, then the lowest
+          locational Radiation DR is used.
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <h1>Changes to normal Fallout TTRPG</h1>
+      <div class="subsection">
+        <ol>
+          <li id="change1">
+            skill checks must meet or beat their target, rather than meet or be
+            below
+          </li>
+          <li id="change2">
+            in skill checks, a 20 on a check is a crit success, as opposed to a
+            1
+          </li>
+          <li id="change3">
+            this expands to tag successes, where 20 - skill is required for a
+            crit success
+          </li>
+          <li id="change4">
+            a 1 is a complication to mirror 20 being a critical success
+          </li>
+          <li id="change5">increased from 1 damage in normal TTRPG</li>
+          <li id="change6">simplified from a Combat Die</li>
+          <li id="change7">
+            changed from 'test' to 'check' for consistency across DND
+          </li>
+          <li id="change8">changed from 'travel, but no combat'</li>
+          <li id="change9">changed from rolling Combat Dice to a flat bonus</li>
+          <li id="change10">
+            changed from rolling Combat Dice to a flat penalty
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</body>
