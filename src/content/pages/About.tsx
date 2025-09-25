@@ -197,9 +197,7 @@ export default function HomePage() {
 
         <div className="space-y-4">
           <div className="bg-card/20 rounded-lg p-5 border border-border">
-            <h4 className="font-semibold text-green-400 mb-2">
-              💻 Programming
-            </h4>
+            <h4 className="font-semibold text-green-400 mb-2">Programming</h4>
             <p className="text-sm">
               In my free-time, I work on and maintain several of the projects
               found in the Projects section. Generally, I program mostly in
@@ -209,7 +207,7 @@ export default function HomePage() {
           </div>
 
           <div className="bg-card/20 rounded-lg p-5 border border-border">
-            <h4 className="font-semibold text-purple-400 mb-2">🎵 Music</h4>
+            <h4 className="font-semibold text-purple-400 mb-2">Music</h4>
             <p className="text-sm">
               I love music, with my favourite genres being Metal, Rock,
               Metalcore, Deathcore, Screamo and similar. Some of my favourite
@@ -225,7 +223,7 @@ export default function HomePage() {
           </div>
 
           <div className="bg-card/20 rounded-lg p-5 border border-border">
-            <h4 className="font-semibold text-blue-400 mb-2">🎮 Gaming</h4>
+            <h4 className="font-semibold text-blue-400 mb-2">Gaming</h4>
             <p className="text-sm">
               I play a lot of games, with some of my favourites being{" "}
               <span className="text-blue-300">Fallout</span>,{" "}
