@@ -5,6 +5,15 @@ import type { ContentItem } from "./data/pages";
 import { loadBlogPosts, loadTsxBlogComponent } from "./utils/blogLoader";
 import { loadPages } from "./utils/pageLoader";
 
+const htmlPages = [
+  { title: "RGB Scale", url: "/projects/rgb-scale/index.html" },
+  { title: "Catalyst Dashes", url: "/projects/catalyst-dashes/index.html" },
+  { title: "MD to HTML", url: "/projects/md_to_html/index.html" },
+  { title: "Fallout Character Creation", url: "/projects/fallout/fallout_character_creation.html" },
+  { title: "Fallout Rules", url: "/projects/fallout/fallout_rules.html" },
+  { title: "Steam Direct", url: "/util/steam_direct.html" },
+];
+
 const generatePath = (item: ContentItem): string => {
   if (item.type === 'page') {
     return `/${item.id}`;
@@ -142,7 +151,7 @@ function App() {
                 </div>
 
                 {blogPosts.length > 0 && (
-                  <div>
+                  <div className="mb-8">
                     <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">
                       Blog Posts
                     </h3>
@@ -168,6 +177,25 @@ function App() {
                     </nav>
                   </div>
                 )}
+
+                <div>
+                  <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-3">
+                    HTML Pages
+                  </h3>
+                  <nav className="space-y-1">
+                    {htmlPages.map((page) => (
+                      <a
+                        key={page.url}
+                        href={page.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full text-left px-4 py-2 rounded-lg transition-all duration-200 text-muted-foreground hover:text-foreground hover:bg-accent"
+                      >
+                        {page.title}
+                      </a>
+                    ))}
+                  </nav>
+                </div>
               </div>
             </div>
 
